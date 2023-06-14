@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/14 09:48:21 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/14 10:39:36 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,12 @@ t_list	*clst_last(t_list *lst)
 
 void	clst_append(t_list **lst, t_list *new_node)
 {
-	t_list	*head;
+	t_list	*last;
 
-	head = *lst;
 	if (*lst)
 	{
-		while (head->next != *lst)
-			head = head->next;
-		head->next = new_node;
+		last = clst_last(*lst);
+		last->next = new_node;
 		new_node->next = *lst;
 	}
 	else
@@ -93,15 +91,39 @@ void	clst_push(t_list **lst, t_list *new_node)
 	}
 }
 
-void	print_list(t_list *lst)
+t_list	*clst_pop(t_list **lst)
+{
+	t_list *popped;
+
+	popped = *lst;
+	clst_last(*lst)->next = (*lst)->next;
+	*lst = (*lst)->next;
+	return (popped);
+}
+
+// void	clst_swap(t_list **lst)
+// {
+
+// }
+
+void	clst_rotate(t_list **lst)
+{
+	*lst = (*lst)->next;
+}
+
+void	clst_rev_rotate(t_list **lst)
+{
+	*lst = clst_last(*lst);
+}
+
+void	print_clst(t_list *lst)
 {
 	t_list	*head;
 
 	head = lst;
-	printf("__ PRINT LIST __\n");
 	while (head->next && head->next != lst)
 	{
-		printf("%d\n", head->n);
+		printf("%d ", head->n);
 		head = head->next;
 	}
 	printf("%d\n", head->n);

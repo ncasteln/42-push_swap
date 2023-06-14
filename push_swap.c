@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:33:42 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/14 09:50:14 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/14 10:39:07 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,37 @@ int	main(int argc, char **argv)
 		return (1);
 	while (i < argc)
 	{
-		clst_push(&lst, clst_newnode(ft_atoi(argv[i])));
+		clst_append(&lst, clst_newnode(ft_atoi(argv[i])));
 		i++;
 	}
-	printf("clst_size = [%d]\n", clst_size(lst));
-	printf("clst_last = [%d]\n", clst_last(lst)->n);
-	print_list(lst);
+	print_clst(lst);
+	printf("size = [%d]\n", clst_size(lst));
+	printf("last = [%d]\n\n", clst_last(lst)->n);
+
+	printf("__ ROTATE (shift up) __\n");
+	clst_rotate(&lst);
+	print_clst(lst);
+	clst_rotate(&lst);
+	print_clst(lst);
+	clst_rotate(&lst);
+	print_clst(lst);
+	printf("\n");
+
+	printf("__ REV_ROTATE (shift down) __\n");
+	clst_rev_rotate(&lst);
+	print_clst(lst);
+	clst_rev_rotate(&lst);
+	print_clst(lst);
+	clst_rev_rotate(&lst);
+	print_clst(lst);
+	printf("\n");
+
+	printf("__ POP __\n");
+	printf("I popped [%d]\n", clst_pop(&lst)->n);
+	printf("I popped [%d]\n", clst_pop(&lst)->n);
+	printf("I popped [%d]\n", clst_pop(&lst)->n);
+	printf("After popping 3 times, the list is now:\n");
+	print_clst(lst);
+	printf("size = [%d]\n", clst_size(lst));
+	printf("last = [%d]\n\n", clst_last(lst)->n);
 }
