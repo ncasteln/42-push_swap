@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/14 14:30:49 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:40:59 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_clist	*clst_newnode(int n)
 	return (new_node);
 }
 
-int	clst_size(t_clist *lst)
+int	clst_size(t_clist *lst) // check an empty list
 {
 	int	len;
 	t_clist	*head;
@@ -44,13 +44,14 @@ int	clst_size(t_clist *lst)
 	return (len);
 }
 
-t_clist	*clst_last(t_clist *lst)
+t_clist	*clst_last(t_clist *lst) // problem: the returned is the original or a copy?
 {
 	t_clist	*head;
 
 	head = lst;
 	while (head && head->next != lst)
 		head = head->next;
+	printf("Address in lst_last [%p] should be equal to...", &head);
 	return (head);
 }
 

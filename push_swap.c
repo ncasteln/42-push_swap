@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:33:42 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/14 14:28:03 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:40:45 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ int	main(int argc, char **argv)
 	printf("[ B ] ");
 	print_clst(b);
 
-	// printf("__ LAST __ \n");
-	// printf("last [%d]\n", clst_last(a)->n);
+	printf("__ LAST __ \n");
+	t_clist *last = clst_last(&a);
+	printf("address outside of lst_last [%p]\n", last);
+	printf("BUT ITS NOT");
 
 	// printf("__ PUSH __ \n");
 	// clst_push(&a, clst_newnode(99999));
