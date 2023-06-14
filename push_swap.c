@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:33:42 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/14 10:39:07 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/14 10:47:46 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,15 @@ int	main(int argc, char **argv)
 	print_clst(lst);
 	printf("size = [%d]\n", clst_size(lst));
 	printf("last = [%d]\n\n", clst_last(lst)->n);
+
+	printf("__ SWAP __\n");
+	clst_swap(&lst);
+	printf("After swap, the list is now:\n");
+	print_clst(lst);
+	clst_swap(&lst);
+	printf("After swap, the list is now:\n");
+	print_clst(lst);
+	clst_swap(&lst);
+	printf("After swap, the list is now:\n");
+	print_clst(lst);
 }
