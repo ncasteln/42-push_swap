@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/14 10:41:07 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/14 12:00:21 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-typedef struct s_list
+typedef struct s_clist
 {
 	int				n;
-	struct s_list	*next;
-}					t_list;
-t_list	*clst_newnode(int n);
-int		clst_size(t_list *lst);
-t_list	*clst_last(t_list *lst);
-void	clst_append(t_list **lst, t_list *node);
-void	clst_push(t_list **lst, t_list *new_node);
-t_list	*clst_pop(t_list **lst);
-void	clst_swap(t_list **lst);
-void	clst_rotate(t_list **lst);
-void	clst_rev_rotate(t_list **lst);
-void	print_clst(t_list *lst);
+	struct s_clist	*next;
+}					t_clist;
+t_clist	*clst_newnode(int n);
+int		clst_size(t_clist *lst);
+t_clist	*clst_last(t_clist *lst);
+void	clst_append(t_clist **lst, t_clist *node);
+void	clst_push(t_clist **lst, t_clist *new_node);
+t_clist	*clst_pop(t_clist **lst);
+void	clst_swap(t_clist **lst);
+void	clst_rotate(t_clist **lst);
+void	clst_rev_rotate(t_clist **lst);
+void	print_clst(t_clist *lst);
 
 char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *str);
