@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/14 13:13:20 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:30:49 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_clist	*clst_newnode(int n)
 	return (new_node);
 }
 
-int	clst_size(t_clist *lst) // ----- OPTIONAL??? - could pass argc
+int	clst_size(t_clist *lst)
 {
 	int	len;
 	t_clist	*head;
@@ -69,20 +69,17 @@ void	clst_push(t_clist **lst, t_clist *new_node)
 {
 	t_clist	*last;
 
-	if (*lst) // if there is at least one item
+	if (*lst && new_node) // if there is at least one item
 	{
 		last = clst_last(*lst);
-		printf("The last node is [%d]\n", last->n);
 		last->next = new_node; // works only with the first because of NULL
-		printf("But now, the last node is [%d]\n", last->next->n);
 		new_node->next = *lst;
 		*lst = new_node;
-		printf("Now lst starts from [%d], the new element\n", (*lst)->n);
-		printf("__ PUSHED __ \n\n");
+		printf("__ [%d] PUSHED __ \n", new_node->n);
 	}
 	else
 	{
-		printf("(new list created) \n\n");
+		printf("__ new list created with [%d] __\n", new_node->n);
 		*lst = new_node;
 	}
 }
@@ -91,10 +88,15 @@ t_clist	*clst_pop(t_clist **lst)
 {
 	t_clist *popped;
 
-	popped = *lst;
-	clst_last(*lst)->next = (*lst)->next;
-	*lst = (*lst)->next;
-	popped->next = popped;
+	popped = NULL;
+	if (clst_size(*lst) > 0)
+	{
+		popped = *lst;
+		clst_last(*lst)->next = (*lst)->next;
+		*lst = (*lst)->next;
+		popped->next = popped;
+		printf("__ [%d] POPPED __ \n", popped->n);
+	}
 	return (popped);
 }
 
@@ -128,14 +130,14 @@ void	print_clst(t_clist *lst)
 		head = lst;
 		while (head && head->next != lst)
 		{
-			printf("head->next [%p] && lst [%p] - [%d]\n", head->next, lst, head->n);
+			// printf("head->next [%p] && lst [%p] - [%d]\n", head->next, lst, head->n);
 			// printf("[%d %p]\n", head->n, head->next);
-			// printf("%d  ", head->n);
+			printf("%d  ", head->n);
 			head = head->next;
 		}
-		printf("head->next [%p] && lst [%p] - [%d]\n", head->next, lst, head->n);
+		// printf("head->next [%p] && lst [%p] - [%d]\n", head->next, lst, head->n);
 		// printf("[%d %p]\n", head->n, head->next);
-		// printf("%d\n", head->n);
+		printf("%d\n", head->n);
 	}
 	else
 		printf("(empty list)\n");

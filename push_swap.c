@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:33:42 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/14 13:13:40 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:28:03 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,22 @@
 
 int	main(int argc, char **argv)
 {
+	t_ps	*stack;
 	t_clist	*a;
 	t_clist	*b;
 	int i;
 
-	a = NULL;
-	b = NULL;
 	if (argc == 1)
 		return (1);
+	stack = malloc (sizeof(t_ps));
+	if (!stack)
+		return (1);
+	a = NULL;
+	b = NULL;
+	stack->a = a;
+	stack->b = b;
+	stack->max_size = argc - 1;
+
 	i = 1;
 	while (i < argc)
 	{
@@ -33,28 +41,49 @@ int	main(int argc, char **argv)
 	printf("[ B ] ");
 	print_clst(b);
 
+	// printf("__ LAST __ \n");
+	// printf("last [%d]\n", clst_last(a)->n);
+
 	// printf("__ PUSH __ \n");
 	// clst_push(&a, clst_newnode(99999));
 	// clst_push(&b, clst_newnode(99999));
 
 	// printf("__ POP __\n");
-	// printf("I popped [%d]\n", clst_pop(&a)->n);
-	// printf("I popped [%d]\n", clst_pop(&a)->n);
-	// printf("I popped [%d]\n", clst_pop(&a)->n);
-	// printf("After popping 3 times, the list is now:\n");
+	// clst_pop(&a);
+	// clst_pop(&a);
+	// clst_pop(&a);
+	// clst_pop(&a);
+	// clst_pop(&a);
+	// clst_pop(&a);
 	// print_clst(a);
-	// printf("size = [%d]\n", clst_size(a));
-	// printf("last = [%d]\n", clst_last(a)->n);
 	// printf("\n");
 
-	printf("__ POP & PUSH __\n");
-	clst_push(&b, clst_pop(&a));
-	clst_push(&b, clst_pop(&a));
-	clst_push(&b, clst_pop(&a));
-	printf("[ A ] ");
-	print_clst(a);
-	printf("[ B ] ");
-	print_clst(b);
+	// printf("\n__ POP & PUSH __\n");
+	// clst_push(&b, clst_pop(&a));
+	// printf("[ A ] ");
+	// print_clst(a);
+	// printf("[ B ] ");
+	// print_clst(b);
+	// clst_push(&b, clst_pop(&a));
+	// printf("[ A ] ");
+	// print_clst(a);
+	// printf("[ B ] ");
+	// print_clst(b);
+	// clst_push(&b, clst_pop(&a));
+	// printf("[ A ] ");
+	// print_clst(a);
+	// printf("[ B ] ");
+	// print_clst(b);
+	// clst_push(&b, clst_pop(&a));
+	// printf("[ A ] ");
+	// print_clst(a);
+	// printf("[ B ] ");
+	// print_clst(b);
+	// clst_push(&b, clst_pop(&a));
+	// printf("[ A ] ");
+	// print_clst(a);
+	// printf("[ B ] ");
+	// print_clst(b);
 
 	// printf("__ ROTATE (shift up) __\n");
 	// clst_rotate(&a);
