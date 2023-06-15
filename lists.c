@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/14 14:40:59 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/15 08:29:08 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_clist	*clst_newnode(int n)
 
 int	clst_size(t_clist *lst) // check an empty list
 {
-	int	len;
+	int		len;
 	t_clist	*head;
 
 	len = 0;
@@ -35,11 +35,10 @@ int	clst_size(t_clist *lst) // check an empty list
 		head = lst;
 		while (head->next != lst)
 		{
-			len++;
 			head = head->next;
-		}
-		if (head->next == lst)
 			len++;
+		}
+		len++;
 	}
 	return (len);
 }
@@ -51,7 +50,7 @@ t_clist	*clst_last(t_clist *lst) // problem: the returned is the original or a c
 	head = lst;
 	while (head && head->next != lst)
 		head = head->next;
-	printf("Address in lst_last [%p] should be equal to...", &head);
+	// printf("Address in lst_last [%p] should be equal to...", head);
 	return (head);
 }
 
@@ -89,10 +88,18 @@ t_clist	*clst_pop(t_clist **lst)
 {
 	t_clist *popped;
 
-	popped = NULL;
-	if (clst_size(*lst) > 0)
+	popped = *lst;
+	// popped->next = popped; // BUG
+	// printf("[%p]", popped->next);
+	// printf("[%p]", (*lst)->next);
+	printf("SIZE [%d]\n", clst_size(*lst));
+	if (clst_size(*lst) == 1)
 	{
-		popped = *lst;
+		printf("__ (last popped - empty list) __ \n");
+		*lst = NULL;
+	}
+	else
+	{
 		clst_last(*lst)->next = (*lst)->next;
 		*lst = (*lst)->next;
 		popped->next = popped;
