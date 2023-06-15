@@ -1,47 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 13:30:29 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/15 16:30:20 by ncasteln         ###   ########.fr       */
+/*   Created: 2023/06/15 16:26:48 by ncasteln          #+#    #+#             */
+/*   Updated: 2023/06/15 16:33:22 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_isdigit(int c)
+int		ft_strlen(char *s)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	return (0);
-}
-
-int	ft_atoi(const char *str)
-{
-	size_t	i;
-	int		sign;
-	int		n;
+	int	i;
 
 	i = 0;
-	sign = 1;
-	n = 0;
-	while ((str[i] == 32) || (str[i] >= 9 && str[i] <= 13))
+	while (s[i])
 		i++;
-	if (str[i] == '-')
+	return (i);
+}
+
+char	*ft_strchr(char *str, int c)
+{
+	char	*p;
+	int		i;
+
+	p = (char *) str;
+	i = 0;
+	if ((char)c == '\0')
+		return (p + ft_strlen(str));
+	while (p[i])
 	{
-		sign = -1;
+		if (p[i] == (char)c)
+			return (p + i);
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (ft_isdigit(str[i]))
-	{
-		n = n * 10;
-		n = n + (str[i] - '0');
-		i++;
-	}
-	return (n * sign);
+	return (NULL);
 }
