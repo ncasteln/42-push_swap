@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:33:42 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/15 09:12:53 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/15 09:35:18 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,6 @@ int	main(int argc, char **argv)
 
 	// printf("\n__ POP & PUSH __\n");
 	// clst_push(&stack->b, clst_pop(&stack->a));
-	// clst_push(&stack->b, clst_pop(&stack->a));
-	// clst_push(&stack->b, clst_pop(&stack->a));
-	// clst_push(&stack->b, clst_pop(&stack->a));
-	// clst_push(&stack->b, clst_pop(&stack->a));
-	// clst_push(&stack->b, clst_pop(&stack->a));
-	// clst_push(&stack->b, clst_pop(&stack->a));
-	// clst_push(&stack->b, clst_pop(&stack->a));
-	// clst_push(&stack->b, clst_pop(&stack->a));
 	// printf("[ A ] ");
 	// print_clst(stack->a);
 	// printf("[ B ] ");
@@ -98,5 +90,36 @@ int	main(int argc, char **argv)
 	// clst_swap(&stack->a);
 	// printf("After swap, the list is now: ");
 	// print_clst(stack->a);
+	// printf("\n");
+
+	// printf("__ MIX __\n");
+	// clst_swap(&stack->a);
+	// printf("[ A ] ");
+	// print_clst(stack->a);
+	// printf("[ B ] ");
+	// print_clst(stack->b);
+	// printf("\n");
+	// clst_push(&stack->b, clst_pop(&stack->a));
+	// // clst_push(&stack->b, clst_pop(&stack->a));
+	// printf("[ A ] ");
+	// print_clst(stack->a);
+	// printf("[ B ] ");
+	// print_clst(stack->b);
+	// printf("\n");
+	// clst_rotate(&stack->a);
+	// clst_rotate(&stack->b);
+	// printf("[ A ] ");
+	// print_clst(stack->a);
+	// printf("[ B ] ");
+	// print_clst(stack->b);
+	// printf("\n");
+	// clst_push(&stack->a, clst_pop(&stack->b));
+	// clst_push(&stack->a, clst_pop(&stack->b));
+	// clst_push(&stack->a, clst_pop(&stack->b));
+	// clst_push(&stack->a, clst_pop(&stack->b));
+	// printf("[ A ] ");
+	// print_clst(stack->a);
+	// printf("[ B ] ");
+	// print_clst(stack->b);
 	// printf("\n");
 }

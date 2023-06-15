@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/15 09:21:14 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/15 09:34:27 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,15 +120,18 @@ void	clst_swap(t_clist **lst)
 	temp = (*lst)->n;
 	(*lst)->n = (*lst)->next->n;
 	(*lst)->next->n = temp;
+	printf("__ SWAP __\n");
 }
 
 void	clst_rotate(t_clist **lst)
 {
+	printf("__ SHIFT UP __\n");
 	*lst = (*lst)->next;
 }
 
 void	clst_rev_rotate(t_clist **lst)
 {
+	printf("__ SHIFT DOWN __\n");
 	*lst = clst_last(*lst);
 }
 
@@ -139,17 +142,13 @@ void	print_clst(t_clist *lst)
 	head = NULL;
 	if (clst_size(lst))
 	{
-		printf("size = [%d] - last = [%d]\n", clst_size(lst), clst_last(lst)->n);
+		printf("size = [%d] - last = [%d]\t", clst_size(lst), clst_last(lst)->n);
 		head = lst;
 		while (head && head->next != lst)
 		{
-			// printf("head->next [%p] && lst [%p] - [%d]\n", head->next, lst, head->n);
-			// printf("[%d %p]\n", head->n, head->next);
 			printf("%d  ", head->n);
 			head = head->next;
 		}
-		// printf("head->next [%p] && lst [%p] - [%d]\n", head->next, lst, head->n);
-		// printf("[%d %p]\n", head->n, head->next);
 		printf("%d\n", head->n);
 	}
 	else
