@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/14 14:53:04 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:15:52 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 
+// ------------------------ LISTS ------------------------
 typedef struct s_clist
 {
 	int				n;
@@ -38,6 +39,8 @@ void	clst_rotate(t_clist **lst);
 void	clst_rev_rotate(t_clist **lst);
 void	print_clst(t_clist *lst);
 
+// ------------------------ UTILS ------------------------
+int		error(void);
 char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *str);
 

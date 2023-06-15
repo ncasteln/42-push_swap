@@ -6,7 +6,7 @@
 #    By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 15:23:28 by ncasteln          #+#    #+#              #
-#    Updated: 2023/06/15 09:23:08 by ncasteln         ###   ########.fr        #
+#    Updated: 2023/06/15 16:15:11 by ncasteln         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,10 @@ NAME = push_swap
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = push_swap.c \
-	ft_atoi.c \
-	ft_split.c \
-	clst.c
+	clst.c \
+	./utils/ft_atoi.c \
+	./utils/ft_split.c \
+	./utils/error.c
 OBJS = $(SRC:.c=.o)
 
 CLST = clst.c \
@@ -29,6 +30,9 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	cc $(CFLAGS) $(OBJS) -o $@
+
+%.o: %.c
+	cc -c $(CFLAGS) -o $@ $^
 
 clean:
 	rm -f $(OBJS)

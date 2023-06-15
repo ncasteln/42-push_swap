@@ -6,11 +6,11 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:47:36 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/14 07:52:02 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:03:38 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
+#include "../push_swap.h"
 
 static size_t	ft_strlen(const char *str)
 {

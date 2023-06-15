@@ -6,11 +6,11 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 13:30:29 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/14 07:57:27 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:07:02 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
+#include "../push_swap.h"
 
 static int	ft_isdigit(int c)
 {
