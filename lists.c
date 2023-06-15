@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/15 08:29:08 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/15 08:38:39 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,12 @@ void	clst_push(t_clist **lst, t_clist *new_node)
 {
 	t_clist	*last;
 
-	if (*lst && new_node) // if there is at least one item
+	if (!new_node)
+	{
+		printf("__ Tried to push a NULL node __\n");
+		return ; // error??
+	}
+	if (*lst) // if there is at least one item
 	{
 		last = clst_last(*lst);
 		last->next = new_node; // works only with the first because of NULL
@@ -90,20 +95,20 @@ t_clist	*clst_pop(t_clist **lst)
 
 	popped = *lst;
 	// popped->next = popped; // BUG
-	// printf("[%p]", popped->next);
-	// printf("[%p]", (*lst)->next);
-	printf("SIZE [%d]\n", clst_size(*lst));
-	if (clst_size(*lst) == 1)
+	if (*lst)
 	{
-		printf("__ (last popped - empty list) __ \n");
-		*lst = NULL;
-	}
-	else
-	{
-		clst_last(*lst)->next = (*lst)->next;
-		*lst = (*lst)->next;
-		popped->next = popped;
-		printf("__ [%d] POPPED __ \n", popped->n);
+		if (clst_size(*lst) == 1)
+		{
+			printf("__ [%d] POPPED WAS THE LAST! __ \n", popped->n);
+			*lst = NULL;
+		}
+		else
+		{
+			clst_last(*lst)->next = (*lst)->next;
+			*lst = (*lst)->next;
+			popped->next = popped;
+			printf("__ [%d] POPPED __ \n", popped->n);
+		}
 	}
 	return (popped);
 }
