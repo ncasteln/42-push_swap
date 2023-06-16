@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/15 16:33:36 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/16 09:18:22 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ t_clist	*clst_pop(t_clist **lst);
 void	clst_swap(t_clist **lst);
 void	clst_rotate(t_clist **lst);
 void	clst_rev_rotate(t_clist **lst);
-void	print_clst(t_clist *lst);
+void	clst_print(t_clist *lst);
 
 // ------------------------ UTILS ------------------------
 int		ft_isdigit(int c);
 int		error(void);
 char	*ft_strchr(char *str, int c);
 char	**ft_split(char const *s, char c);
-int		ft_atoi(const char *str);
+long	ft_atol(char *str);
 
 #endif

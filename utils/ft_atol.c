@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 13:30:29 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/15 16:30:20 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/16 09:18:18 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atol(char *str)
 {
 	size_t	i;
-	int		sign;
-	int		n;
+	long	sign;
+	long	n;
 
 	i = 0;
 	sign = 1;
