@@ -6,7 +6,7 @@
 #    By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 15:23:28 by ncasteln          #+#    #+#              #
-#    Updated: 2023/06/16 15:52:11 by ncasteln         ###   ########.fr        #
+#    Updated: 2023/06/16 18:52:44 by ncasteln         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,10 +31,10 @@ CLSTOBJS = $(CLST:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	cc $(CFLAGS) $(OBJS) -o $@
+	cc -g $(CFLAGS) $(OBJS) -o $@
 
 %.o: %.c
-	cc -c $(CFLAGS) -o $@ $^
+	cc -c $(CFLAGS) -o $@ $^ -g
 
 clean:
 	rm -f $(OBJS)
@@ -50,16 +50,5 @@ clst: $(CLSTOBJS)
 
 clst_clean:
 	rm -f $(CLSTOBJS) clst
-
-# VALGRIND
-valgrind: $(NAME)
-	valgrind --leak-check=full ./$(NAME) 5 9 12 17 23
-
-valgrind_string: $(NAME)
-	valgrind --leak-check=full ./$(NAME) "5 9 12 17 23"
-
-valgrind_mix: $(NAME)
-	valgrind --leak-check=full ./$(NAME) 5 9 12 "17 23"
-
 
 .PHONY: all clean fclean re

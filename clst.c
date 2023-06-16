@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/16 16:08:25 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/16 18:04:17 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,13 +139,14 @@ void	clst_clear(t_clist **lst)
 {
 	t_clist	*temp;
 
-	while (*lst)
+	while (lst)
 	{
 		temp = (*lst)->next;
 		(*lst)->n = 0;
 		free(*lst);
 		*lst = temp;
 	}
+	*lst = NULL;
 }
 
 void	clst_print(t_clist *lst)
