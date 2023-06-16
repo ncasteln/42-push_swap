@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/16 11:41:56 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:39:26 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int		error(void);
 char	*ft_strchr(char *str, int c);
 char	**ft_split(char *s, char c);
 long	ft_atol(char *str);
+void	free_dptr(char **s);
 
 #endif
