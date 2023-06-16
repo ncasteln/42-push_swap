@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:21:34 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/16 14:39:36 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:51:35 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static int	build_stack(t_clist **stack, int argc, char **argv)
 	int		j;
 	char	**argv_splitted;
 
+	if(!(is_valid_argc(argc)))
+		return (0);
 	i = 1;
 	while (i < argc)
 	{
@@ -48,24 +50,15 @@ static int	build_stack(t_clist **stack, int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_ps	*stack;
+	t_clist *a;
+	t_clist *b;
 
-	// --- VALIDATION ---
-	if(!(is_valid_argc(argc)))
+	a = NULL;
+	b = NULL;
+
+	if (!(build_stack(&a, argc, argv)))
 		return (error());
-
-	// --- ALLOCATION ---
-	stack = malloc (sizeof(t_ps));
-	if (!stack)
-		return (error());
-
-	// --- BUILD STACKS ---
-	stack->a = NULL;
-	stack->b = NULL;
-
-	if (!(build_stack(&stack->a, argc, argv)))
-		return (error());
-	clst_print(stack->a);
+	clst_print(a);
 
 	return (0);
 }
