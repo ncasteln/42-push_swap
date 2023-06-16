@@ -6,15 +6,15 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:47:36 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/15 16:03:38 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/16 10:12:27 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static size_t	ft_strlen(const char *str)
+int	ft_strlen(char *str)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -22,7 +22,7 @@ static size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-static size_t	ft_strlcpy(char *dest, const char *src, size_t d_size)
+static size_t	ft_strlcpy(char *dest, char *src, size_t d_size)
 {
 	size_t	i;
 	size_t	s_size;
@@ -58,7 +58,7 @@ static	void	free_memory(char **s)
 	free(s);
 }
 
-static	int	get_str_length(const char *s, char c)
+static	int	get_str_length(char *s, char c)
 {
 	int	i;
 
@@ -68,7 +68,7 @@ static	int	get_str_length(const char *s, char c)
 	return (i);
 }
 
-static	int	get_n_words(const char *s, char c)
+static	int	get_n_words(char *s, char c)
 {
 	int	i;
 	int	len;
@@ -90,7 +90,7 @@ static	int	get_n_words(const char *s, char c)
 	return (n_words);
 }
 
-static	char	**allocate_words(const char *s, int n_words)
+static	char	**allocate_words(char *s, int n_words)
 {
 	char	**p;
 
@@ -103,7 +103,7 @@ static	char	**allocate_words(const char *s, int n_words)
 	return (p);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	int		i;
 	int		n_words;

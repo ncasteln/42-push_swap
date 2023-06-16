@@ -6,7 +6,7 @@
 #    By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 15:23:28 by ncasteln          #+#    #+#              #
-#    Updated: 2023/06/16 09:01:43 by ncasteln         ###   ########.fr        #
+#    Updated: 2023/06/16 10:58:06 by ncasteln         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC = push_swap.c \
 	clst.c \
+	./utils/validation.c \
 	./utils/ft_strchr.c \
 	./utils/ft_atol.c \
 	./utils/ft_split.c \

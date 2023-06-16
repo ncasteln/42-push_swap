@@ -6,21 +6,11 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 16:26:48 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/15 16:33:22 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/16 10:11:57 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int		ft_strlen(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
 
 char	*ft_strchr(char *str, int c)
 {
