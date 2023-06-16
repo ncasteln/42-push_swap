@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/16 14:50:43 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/16 16:08:25 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,19 @@ void	clst_rev_rotate(t_clist **lst)
 {
 	// printf("__ SHIFT DOWN __\n");
 	*lst = clst_last(*lst);
+}
+
+void	clst_clear(t_clist **lst)
+{
+	t_clist	*temp;
+
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		(*lst)->n = 0;
+		free(*lst);
+		*lst = temp;
+	}
 }
 
 void	clst_print(t_clist *lst)

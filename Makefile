@@ -6,7 +6,7 @@
 #    By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 15:23:28 by ncasteln          #+#    #+#              #
-#    Updated: 2023/06/16 12:21:14 by ncasteln         ###   ########.fr        #
+#    Updated: 2023/06/16 15:52:11 by ncasteln         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,5 +50,16 @@ clst: $(CLSTOBJS)
 
 clst_clean:
 	rm -f $(CLSTOBJS) clst
+
+# VALGRIND
+valgrind: $(NAME)
+	valgrind --leak-check=full ./$(NAME) 5 9 12 17 23
+
+valgrind_string: $(NAME)
+	valgrind --leak-check=full ./$(NAME) "5 9 12 17 23"
+
+valgrind_mix: $(NAME)
+	valgrind --leak-check=full ./$(NAME) 5 9 12 "17 23"
+
 
 .PHONY: all clean fclean re
