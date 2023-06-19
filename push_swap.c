@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:21:34 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/16 19:01:33 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 11:45:32 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ static int	build_stack(t_clist **stack, int argc, char **argv)
 		if (ft_strchr(argv[i], ' '))
 		{
 			argv_splitted = ft_split(argv[i], ' ');
+			if (!argv_splitted[0])
+				return (0);
+			// if (!argv_splitted) // ----- protect in ft_split
+			// 	return (0);
 			j = 0;
 			while (argv_splitted[j])
 			{
@@ -51,8 +55,6 @@ static int	build_stack(t_clist **stack, int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	// 1) modify the build_stack so that returns the stack
-	// 2) use a bigger structure to inglobate them, but is it useful?
 	t_clist *a;
 	t_clist *b;
 
@@ -60,9 +62,12 @@ int	main(int argc, char **argv)
 	b = NULL;
 
 	if (!(build_stack(&a, argc, argv)))
+	{
+		if (a)
+			clst_clear(&a);
 		return (error());
+	}
 
 	clst_print(a);
-
-	return (0);
+	return (clst_clear(&a), 0);
 }

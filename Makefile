@@ -6,7 +6,7 @@
 #    By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 15:23:28 by ncasteln          #+#    #+#              #
-#    Updated: 2023/06/16 18:52:44 by ncasteln         ###   ########.fr        #
+#    Updated: 2023/06/19 11:21:34 by ncasteln         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,17 +24,17 @@ OBJS = $(SRC:.c=.o)
 
 CLST = clst.c \
 	clst_test.c \
-	ft_atol.c \
-	ft_split.c
+	./utils/ft_atol.c \
+	./utils/ft_split.c
 CLSTOBJS = $(CLST:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	cc -g $(CFLAGS) $(OBJS) -o $@
+	cc -g $(OBJS) -o $@
 
 %.o: %.c
-	cc -c $(CFLAGS) -o $@ $^ -g
+	cc -c -o $@ $^ -g
 
 clean:
 	rm -f $(OBJS)
@@ -46,7 +46,7 @@ re: fclean all
 
 # CLISTS TESTING
 clst: $(CLSTOBJS)
-	cc $(CFLAGS) $(CLSTOBJS) -o $@
+	cc $(CLSTOBJS) -o $@
 
 clst_clean:
 	rm -f $(CLSTOBJS) clst

@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/16 18:04:17 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 11:38:54 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_clist	*clst_last(t_clist *lst) // problem: the returned is the original or a c
 
 void	clst_append(t_clist **lst, t_clist *new_node)
 {
-	if (*lst) // if there is at least one item
+	if (*lst)
 	{
 		clst_last(*lst)->next = new_node;
 		new_node->next = *lst;
@@ -134,19 +134,33 @@ void	clst_rev_rotate(t_clist **lst)
 	// printf("__ SHIFT DOWN __\n");
 	*lst = clst_last(*lst);
 }
+	// correct
+	// t_clist	*temp;
+	// t_clist	*cpy;
+
+	// cpy = *lst;
+	// while (cpy->next != *lst)
+	// {
+	// 	temp = cpy;
+	// 	cpy->n = 0;
+	// 	cpy = temp->next;
+	// 	free(temp);
+	// }
+	// free(cpy);
 
 void	clst_clear(t_clist **lst)
 {
 	t_clist	*temp;
+	t_clist	*cpy;
 
-	while (lst)
+	cpy = *lst;
+	while (cpy->next != *lst)
 	{
-		temp = (*lst)->next;
-		(*lst)->n = 0;
-		free(*lst);
-		*lst = temp;
+		temp = cpy;
+		cpy = cpy->next;
+		free(temp);
 	}
-	*lst = NULL;
+	free(cpy);
 }
 
 void	clst_print(t_clist *lst)

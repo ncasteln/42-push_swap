@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/16 18:57:54 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 11:39:01 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@ typedef struct s_clist
 	int				n;
 	struct s_clist	*next;
 }					t_clist;
-typedef struct s_ps
-{
-	t_clist	*a;
-	t_clist	*b;
-}				t_ps;
 t_clist	*clst_newnode(int n);
 int		clst_size(t_clist *lst);
 t_clist	*clst_last(t_clist *lst);

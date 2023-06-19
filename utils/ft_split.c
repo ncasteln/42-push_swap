@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:47:36 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/16 12:44:00 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 11:41:50 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ char	**ft_split(char *s, char c)
 	char	**p;
 
 	n_words = get_n_words(s, c);
+	// if (!n_words) // --------- internal protection
+	// 	return (NULL);
 	p = allocate_words(s, n_words);
 	if (!p)
 		return (NULL);
