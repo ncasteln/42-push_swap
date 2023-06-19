@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/19 12:46:03 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:43:55 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ void	clst_print(t_clist *lst, char name);
 // ------------------------ CLISTS MOVES ------------------------
 void	clst_pop_push(t_clist **src, t_clist **dst, char *name);
 void	clst_swap(t_clist **lst, char *name);
+void	clst_ss(t_clist **a, t_clist **b);
 void	clst_rotate(t_clist **lst, char *name);
+void	clst_rr(t_clist **a, t_clist **b);
 void	clst_rev_rotate(t_clist **lst, char *name);
+void	clst_rrr(t_clist **a, t_clist **b);
 
 // ------------------------ VALIDATION ------------------------
 int		is_valid_argc(int argc);

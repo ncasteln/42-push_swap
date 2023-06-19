@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:52:31 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/19 11:35:58 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:40:07 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ static int	has_duplicates(int n, t_clist *lst)
 int	is_valid_argv(char *argv, t_clist *lst)
 {
 	long	n;
-	t_clist	*head;
 
 	if (argv[0] == '+' || argv[0] == '-')
 		return (0);
