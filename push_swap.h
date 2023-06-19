@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/19 12:39:54 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:46:03 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		clst_size(t_clist *lst);
 t_clist	*clst_last(t_clist *lst);
 void	clst_append(t_clist **lst, t_clist *node);
 void	clst_clear(t_clist **lst);
-void	clst_print(t_clist *lst);
+void	clst_print(t_clist *lst, char name);
 
 // ------------------------ CLISTS MOVES ------------------------
 void	clst_pop_push(t_clist **src, t_clist **dst, char *name);

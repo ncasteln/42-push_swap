@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:31:13 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/19 12:40:29 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:52:58 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,12 @@ static t_clist	*clst_pop(t_clist **lst)
 
 void	clst_pop_push(t_clist **src, t_clist **dst, char *name)
 {
-	clst_push(dst, clst_pop(src));
-	ft_putstr(name);
+	// if pop an empty list, what should happen?
+	if (*src)
+	{
+		clst_push(dst, clst_pop(src));
+		ft_putstr(name);
+	}
 }
 
 void	clst_swap(t_clist **lst, char *name)

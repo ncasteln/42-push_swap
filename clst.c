@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/19 12:31:42 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:46:19 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,11 @@ void	clst_clear(t_clist **lst)
 	free(cpy);
 }
 
-void	clst_print(t_clist *lst)
+void	clst_print(t_clist *lst, char name)
 {
 	t_clist	*head;
 
+	printf("[ %c ] ", name);
 	head = NULL;
 	if (clst_size(lst))
 	{

@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 16:08:45 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/19 12:34:27 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:48:18 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ void	ft_putstr(char *s)
 		ft_putchar(*s);
 		s++;
 	}
+	ft_putchar('\n');
 }
 
 int	error(void)
 {
-	ft_putstr("Error\n");
+	ft_putstr("Error");
 	return (1);
 }

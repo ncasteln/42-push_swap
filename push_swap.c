@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:21:34 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/19 12:29:14 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:52:44 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,21 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-
 	if (!(build_stack(&a, argc, argv)))
 		return (clst_clear(&a), error());
-	clst_print(a);
+
+	clst_print(a, 'A');
+	clst_print(b, 'B');
+
+	clst_pop_push(&a, &b, "pb");
+	clst_pop_push(&a, &b, "pb");
+	clst_pop_push(&a, &b, "pb");
+	clst_pop_push(&a, &b, "pb");
+	clst_pop_push(&a, &b, "pb");
+	clst_pop_push(&a, &b, "pb");
+
+	clst_print(a, 'A');
+	clst_print(b, 'B');
+
 	return (clst_clear(&a), 0);
 }
