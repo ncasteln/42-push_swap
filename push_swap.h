@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/19 11:39:01 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:39:54 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ t_clist	*clst_newnode(int n);
 int		clst_size(t_clist *lst);
 t_clist	*clst_last(t_clist *lst);
 void	clst_append(t_clist **lst, t_clist *node);
-void	clst_push(t_clist **lst, t_clist *new_node);
-t_clist	*clst_pop(t_clist **lst);
-void	clst_swap(t_clist **lst);
-void	clst_rotate(t_clist **lst);
-void	clst_rev_rotate(t_clist **lst);
 void	clst_clear(t_clist **lst);
 void	clst_print(t_clist *lst);
+
+// ------------------------ CLISTS MOVES ------------------------
+void	clst_pop_push(t_clist **src, t_clist **dst, char *name);
+void	clst_swap(t_clist **lst, char *name);
+void	clst_rotate(t_clist **lst, char *name);
+void	clst_rev_rotate(t_clist **lst, char *name);
 
 // ------------------------ VALIDATION ------------------------
 int		is_valid_argc(int argc);
@@ -45,6 +46,7 @@ int		error(void);
 char	*ft_strchr(char *str, int c);
 char	**ft_split(char *s, char c);
 long	ft_atol(char *str);
-void	free_dptr(char **s);
+void	free_double_pointer(char **s);
+void	ft_putstr(char *s);
 
 #endif

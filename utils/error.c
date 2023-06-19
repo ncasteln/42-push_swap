@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 16:08:45 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/15 16:15:34 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:34:27 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_putchar(int c)
 	write(1, &c, 1);
 }
 
-static void	ft_putstr(char *s)
+void	ft_putstr(char *s)
 {
 	while (*s)
 	{

@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:47:36 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/19 11:41:50 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:10:38 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,13 @@ static size_t	ft_strlcpy(char *dest, char *src, size_t d_size)
 	return (s_size);
 }
 
-void	free_dptr(char **s)
+void	free_double_pointer(char **s)
 {
 	int	i;
 	int	j;
 
+	if (!s)
+		return ;
 	i = 0;
 	j = 0;
 	while (s[i])
@@ -123,7 +125,7 @@ char	**ft_split(char *s, char c)
 		{
 			p[i] = malloc((get_str_length(s, c) + 1) * sizeof(char));
 			if (!(p[i]))
-				return (free_dptr(p), NULL);
+				return (free_double_pointer(p), NULL);
 			ft_strlcpy(p[i], s, get_str_length(s, c) + 1);
 			s += get_str_length(s, c);
 			i++;

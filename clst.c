@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/19 11:38:54 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:31:42 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,13 @@ int	clst_size(t_clist *lst) // check an empty list
 	return (len);
 }
 
-t_clist	*clst_last(t_clist *lst) // problem: the returned is the original or a copy?
+t_clist	*clst_last(t_clist *lst)
 {
 	t_clist	*head;
 
 	head = lst;
 	while (head && head->next != lst)
 		head = head->next;
-	// // printf("Address in lst_last [%p] should be equal to...", head);
 	return (head);
 }
 
@@ -65,94 +64,13 @@ void	clst_append(t_clist **lst, t_clist *new_node)
 		*lst = new_node;
 }
 
-void	clst_push(t_clist **lst, t_clist *new_node)
-{
-	t_clist	*last;
-
-	if (!new_node)
-	{
-		// printf("__ Tried to push a NULL node __\n");
-		return ; // error??
-	}
-	if (*lst) // if there is at least one item
-	{
-		last = clst_last(*lst);
-		last->next = new_node; // works only with the first because of NULL
-		new_node->next = *lst;
-		*lst = new_node;
-		// printf("__ [%d] PUSHED __ \n", new_node->n);
-	}
-	else
-	{
-		// printf("__ new list created with [%d] __\n", new_node->n);
-		*lst = new_node;
-	}
-}
-
-t_clist	*clst_pop(t_clist **lst)
-{
-	t_clist *popped;
-
-	popped = *lst;
-	// popped->next = popped; // BUG
-	if (*lst)
-	{
-		if (clst_size(*lst) == 1)
-		{
-			// printf("__ [%d] POPPED WAS THE LAST! __ \n", popped->n);
-			*lst = NULL;
-		}
-		else
-		{
-			clst_last(*lst)->next = (*lst)->next;
-			*lst = (*lst)->next;
-			popped->next = popped;
-			// printf("__ [%d] POPPED __ \n", popped->n);
-		}
-	}
-	return (popped);
-}
-
-void	clst_swap(t_clist **lst)
-{
-	int	temp;
-
-	temp = (*lst)->n;
-	(*lst)->n = (*lst)->next->n;
-	(*lst)->next->n = temp;
-	// printf("__ SWAP __\n");
-}
-
-void	clst_rotate(t_clist **lst)
-{
-	// printf("__ SHIFT UP __\n");
-	*lst = (*lst)->next;
-}
-
-void	clst_rev_rotate(t_clist **lst)
-{
-	// printf("__ SHIFT DOWN __\n");
-	*lst = clst_last(*lst);
-}
-	// correct
-	// t_clist	*temp;
-	// t_clist	*cpy;
-
-	// cpy = *lst;
-	// while (cpy->next != *lst)
-	// {
-	// 	temp = cpy;
-	// 	cpy->n = 0;
-	// 	cpy = temp->next;
-	// 	free(temp);
-	// }
-	// free(cpy);
-
 void	clst_clear(t_clist **lst)
 {
 	t_clist	*temp;
 	t_clist	*cpy;
 
+	if (!(*lst))
+		return ;
 	cpy = *lst;
 	while (cpy->next != *lst)
 	{
@@ -170,7 +88,6 @@ void	clst_print(t_clist *lst)
 	head = NULL;
 	if (clst_size(lst))
 	{
-		// printf("size = [%d] - last = [%d]\t", clst_size(lst), clst_last(lst)->n);
 		head = lst;
 		while (head && head->next != lst)
 		{
@@ -179,6 +96,6 @@ void	clst_print(t_clist *lst)
 		}
 		printf("%d\n", head->n);
 	}
-	// else
-		// printf("(empty list)\n");
+	else
+		printf("(empty list)\n");
 }
