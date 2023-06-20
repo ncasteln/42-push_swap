@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:31:13 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/20 11:36:27 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:09:32 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	clst_rotate(t_clist **lst, char *name)
 	}
 }
 
-void	clst_rr(t_clist **a, t_clist **b)
+void	clst_d_rotate(t_clist **a, t_clist **b)
 {
 	clst_rotate(a, "ra");
 	clst_rotate(b, "rb");
@@ -100,7 +100,7 @@ void	clst_rev_rotate(t_clist **lst, char *name)
 	}
 }
 
-void	clst_rrr(t_clist **a, t_clist **b)
+void	clst_dr_rotate(t_clist **a, t_clist **b)
 {
 	clst_rev_rotate(a, "rra");
 	clst_rev_rotate(b, "rrb");

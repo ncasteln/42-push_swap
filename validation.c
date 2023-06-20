@@ -6,11 +6,11 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:52:31 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/20 12:09:56 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:38:23 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "./push_swap.h"
 
 static int	is_valid_string_format(char *s)
 {

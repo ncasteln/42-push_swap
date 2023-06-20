@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/20 12:32:25 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:36:49 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ void	clst_print(t_clist *lst, char name);
 // ------------------------ CLISTS MOVES ------------------------
 void	clst_pop_push(t_clist **src, t_clist **dst, char *name);
 void	clst_swap(t_clist **lst, char *name);
-void	clst_ss(t_clist **a, t_clist **b);
+void	clst_d_swap(t_clist **a, t_clist **b);
 void	clst_rotate(t_clist **lst, char *name);
-void	clst_rr(t_clist **a, t_clist **b);
+void	clst_d_rotate(t_clist **a, t_clist **b);
 void	clst_rev_rotate(t_clist **lst, char *name);
-void	clst_rrr(t_clist **a, t_clist **b);
+void	clst_dr_rotate(t_clist **a, t_clist **b);
 
 // ------------------------ VALIDATION ------------------------
 int		is_valid_argc(int argc);
 int		is_valid_argv(char *argv, t_clist *lst);
 
 // ------------------------ SORTING ------------------------
-int		is_sorted(t_clist *lst);
-int		get_best_sort(int argc, t_clist **a, t_clist **b);
+int		is_sorted(t_clist *lst, int size);
+int		get_best_sort(int size, t_clist **a, t_clist **b);
 
 // ------------------------ UTILS ------------------------
 int		ft_isdigit(int c);
