@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:31:13 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/19 14:48:01 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:36:27 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	clst_pop_push(t_clist **src, t_clist **dst, char *name)
 	if (clst_size(*src) > 0)
 	{
 		clst_push(dst, clst_pop(src));
-		ft_putstr(name);
+		ft_putstr_fd(name, 1);
 	}
 }
 
@@ -66,7 +66,7 @@ void	clst_swap(t_clist **lst, char *name)
 		temp = (*lst)->n;
 		(*lst)->n = (*lst)->next->n;
 		(*lst)->next->n = temp;
-		ft_putstr(name);
+		ft_putstr_fd(name, 1);
 	}
 }
 
@@ -81,7 +81,7 @@ void	clst_rotate(t_clist **lst, char *name)
 	if (clst_size(*lst) > 1) // --- not explicit in subject
 	{
 		*lst = (*lst)->next;
-		ft_putstr(name);
+		ft_putstr_fd(name, 1);
 	}
 }
 
@@ -96,7 +96,7 @@ void	clst_rev_rotate(t_clist **lst, char *name)
 	if (clst_size(*lst) > 1) // --- not explicit in subject
 	{
 		*lst = clst_last(*lst);
-		ft_putstr(name);
+		ft_putstr_fd(name, 1);
 	}
 }
 

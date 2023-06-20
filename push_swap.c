@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:21:34 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/19 14:51:38 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:44:48 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ static int	build_stack(t_clist **stack, int argc, char **argv)
 	int		j;
 	char	**argv_splitted;
 
-	if(!(is_valid_argc(argc)))
-		return (0);
 	argv_splitted = NULL;
 	i = 1;
 	while (i < argc)
@@ -59,11 +57,17 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
+	if (argc == 1)
+		return (0);
 	if (!(build_stack(&a, argc, argv)))
-		return (clst_clear(&a), error());
-
+		return (clst_clear(&a), ft_putstr_fd("Error", 2), 1);
 	clst_print(a, 'A');
 	clst_print(b, 'B');
+	if (!is_sorted(a))
+		get_best_sort(argc, &a, &b);
 
+	printf("_ End of sorting _\n");
+	clst_print(a, 'A');
+	clst_print(b, 'B');
 	return (clst_clear(&a), clst_clear(&b), 0);
 }

@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/19 14:43:55 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:32:25 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ void	clst_rrr(t_clist **a, t_clist **b);
 int		is_valid_argc(int argc);
 int		is_valid_argv(char *argv, t_clist *lst);
 
+// ------------------------ SORTING ------------------------
+int		is_sorted(t_clist *lst);
+int		get_best_sort(int argc, t_clist **a, t_clist **b);
+
 // ------------------------ UTILS ------------------------
 int		ft_isdigit(int c);
 int		ft_strlen(char *str);
@@ -50,6 +54,6 @@ char	*ft_strchr(char *str, int c);
 char	**ft_split(char *s, char c);
 long	ft_atol(char *str);
 void	free_double_pointer(char **s);
-void	ft_putstr(char *s);
+void	ft_putstr_fd(char *s, int fd);
 
 #endif
