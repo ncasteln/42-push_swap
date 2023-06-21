@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:14:55 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/21 12:34:24 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:01:17 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,26 @@ int	get_right_pos(int n, t_clist *lst) // two different list
 	return (0);
 }
 
-int	sort_five(t_clist **a, t_clist **b, int size)
+int	sort_five(t_clist **a, t_clist **b) // maybe optimize push first the 2nd biggest
 {
+	move_to_top(get_smallest_node(a), a, 'a');
+	clst_pop_push(a, b, 'b');
 	move_to_top(get_biggest_node(a), a, 'a');
-	printf("%d", size);
-	if (*b)
-		printf("%d", (*b)->n);
+	clst_pop_push(a, b, 'b');
+	sort_three(a);
+	clst_pop_push(b, a, 'a');
+	clst_rotate(a, 'a');
+	clst_pop_push(b, a, 'a');
+	// move_to_top(get_biggest_node(a), a, 'a');
+	// clst_pop_push(a, b, 'b');
+	// move_to_top(get_biggest_node(a), a, 'a');
+	// clst_pop_push(a, b, 'b');
+	// clst_swap(b, 'b');
+	// sort_three(a);
+	// clst_pop_push(b, a, 'a');
+	// clst_pop_push(b, a, 'a');
+	// clst_rotate(a, 'a');
+	// clst_rotate(a, 'a');
 	return (0);
 }
 
@@ -116,7 +130,7 @@ int	get_best_sort(int size, t_clist **a, t_clist **b)
 	// if (size == 4)
 	// 	return (sort_four(a));
 	if (size >= 5)
-		return (sort_five(a, b, size));
+		return (sort_five(a, b));
 	return (1);
 	printf("%p\n", b);
 }

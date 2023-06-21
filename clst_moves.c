@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:31:13 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/21 12:13:41 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:05:37 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	clst_pop_push(t_clist **src, t_clist **dst, char lst_name)
 	}
 }
 
-void	clst_swap(t_clist **lst, char lst_name)
+void	clst_swap(t_clist **lst, char lst_name) // change the contents and NOT the pointer
 {
 	int	temp;
 

@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/21 12:14:50 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:51:31 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		is_valid_argv(char *argv, t_clist *lst);
 int		is_sorted(t_clist *lst, int size);
 int		get_best_sort(int size, t_clist **a, t_clist **b);
 t_clist	*get_biggest_node(t_clist **lst);
-int		get_smallest(t_clist *lst);
+t_clist	*get_smallest_node(t_clist **lst);
 int		get_dist_upward(int n, t_clist *lst);
 int		get_dist_downward(int n, t_clist *lst);
 void	move_to_top(t_clist *node, t_clist **lst, char lst_name);
