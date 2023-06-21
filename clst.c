@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/20 16:52:45 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:30:28 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,16 @@ t_clist	*clst_last(t_clist *lst)
 		head = head->next;
 	return (head);
 }
+
+// t_clist	*clst_last(t_clist **lst)
+// {
+// 	t_clist	*head;
+
+// 	head = *lst;
+// 	while (head && head->next != *lst)
+// 		head = head->next;
+// 	return (head);
+// }
 
 void	clst_append(t_clist **lst, t_clist *new_node)
 {

@@ -6,7 +6,7 @@
 #    By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 15:23:28 by ncasteln          #+#    #+#              #
-#    Updated: 2023/06/20 14:38:39 by ncasteln         ###   ########.fr        #
+#    Updated: 2023/06/21 10:26:40 by ncasteln         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,9 @@ SRC = push_swap.c \
 	./utils/ft_strchr.c \
 	./utils/ft_atol.c \
 	./utils/ft_split.c \
-	./utils/ft_putstr_fd.c \
-	sorting.c
+	./utils/ft_put.c \
+	sorting.c \
+	sorting_utils.c
 OBJS = $(SRC:.c=.o)
 
 CLST = clst.c \

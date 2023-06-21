@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:31:13 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/20 15:09:32 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:13:41 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,18 @@ static t_clist	*clst_pop(t_clist **lst)
 	return (popped);
 }
 
-void	clst_pop_push(t_clist **src, t_clist **dst, char *name)
+void	clst_pop_push(t_clist **src, t_clist **dst, char lst_name)
 {
 	if (clst_size(*src) > 0)
 	{
 		clst_push(dst, clst_pop(src));
-		ft_putstr_fd(name, 1);
+		ft_putchar_fd('p', 1);
+		ft_putchar_fd(lst_name, 1);
+		ft_putchar_fd('\n', 1);
 	}
 }
 
-void	clst_swap(t_clist **lst, char *name)
+void	clst_swap(t_clist **lst, char lst_name)
 {
 	int	temp;
 
@@ -66,42 +68,63 @@ void	clst_swap(t_clist **lst, char *name)
 		temp = (*lst)->n;
 		(*lst)->n = (*lst)->next->n;
 		(*lst)->next->n = temp;
-		ft_putstr_fd(name, 1);
+		ft_putchar_fd('s', 1);
+		if (lst_name == 'a' || lst_name == 'b')
+		{
+			ft_putchar_fd(lst_name, 1);
+			ft_putchar_fd('\n', 1);
+		}
 	}
 }
 
 void	clst_ss(t_clist **a, t_clist **b)
 {
-	clst_swap(a, "sa");
-	clst_swap(b, "sb");
+	clst_swap(a, ' ');
+	clst_swap(b, ' ');
+	ft_putchar_fd('s', 1);
+	ft_putchar_fd('\n', 1);
 }
 
-void	clst_rotate(t_clist **lst, char *name)
+void	clst_rotate(t_clist **lst, char lst_name)
 {
 	if (clst_size(*lst) > 1) // --- not explicit in subject
 	{
 		*lst = (*lst)->next;
-		ft_putstr_fd(name, 1);
+		ft_putchar_fd('r', 1);
+		if (lst_name == 'a' || lst_name == 'b')
+		{
+			ft_putchar_fd(lst_name, 1);
+			ft_putchar_fd('\n', 1);
+		}
 	}
 }
 
 void	clst_d_rotate(t_clist **a, t_clist **b)
 {
-	clst_rotate(a, "ra");
-	clst_rotate(b, "rb");
+	clst_rotate(a, ' ');
+	clst_rotate(b, ' ');
+	ft_putchar_fd('r', 1);
+	ft_putchar_fd('\n', 1);
 }
 
-void	clst_rev_rotate(t_clist **lst, char *name)
+void	clst_rev_rotate(t_clist **lst, char lst_name)
 {
 	if (clst_size(*lst) > 1) // --- not explicit in subject
 	{
 		*lst = clst_last(*lst);
-		ft_putstr_fd(name, 1);
+		ft_putstr_fd("rr", 1);
+		if (lst_name == 'a' || lst_name == 'b')
+		{
+			ft_putchar_fd(lst_name, 1);
+			ft_putchar_fd('\n', 1);
+		}
 	}
 }
 
 void	clst_dr_rotate(t_clist **a, t_clist **b)
 {
-	clst_rev_rotate(a, "rra");
-	clst_rev_rotate(b, "rrb");
+	clst_rev_rotate(a, ' ');
+	clst_rev_rotate(b, ' ');
+	ft_putchar_fd('r', 1);
+	ft_putchar_fd('\n', 1);
 }
