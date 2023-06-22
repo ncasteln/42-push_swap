@@ -6,65 +6,23 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:14:55 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/21 13:01:17 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:24:21 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-int	is_worst_case(t_clist *lst)
-{
-	t_clist *head;
-	int		counter;
-
-	head = lst;
-	counter = 0;
-	while ((head->next != lst) && (head->n > head->next->n))
-	{
-		head = head->next;
-		counter++;
-	}
-	counter++;
-	if (clst_size(lst) == counter)
-		return (1);
-	return (0);
-}
-
-int	is_sorted(t_clist *lst, int size)
-{
-	t_clist *head;
-	int		counter;
-
-	head = lst;
-	counter = 0;
-	while ((head->next != lst) && (head->n < head->next->n))
-	{
-		head = head->next;
-		counter++;
-	}
-	counter++;
-	printf("size [%d]\n", size);
-	printf("counter [%d]\n", counter);
-	if (size == counter)
-	{
-		printf("[ SORTED ]\n");
-		return (1);
-	}
-	return (0);
-}
-
-int	sort_two(t_clist **a)
+void	sort_two(t_clist **a)
 {
 	if ((*a)->n > (*a)->next->n)
 		clst_swap(a, 'a');
-	return (0);
 }
 
-int	sort_three(t_clist **a)
+void	sort_three(t_clist **a, int size) //  remove size ???
 {
 	if (get_biggest_node(a)->n == (*a)->n)
 	{
-		if (is_worst_case(*a))
+		if (is_rev_sorted(*a, size))
 		{
 			clst_swap(a, 'a');
 			clst_rev_rotate(a, 'a');
@@ -76,62 +34,85 @@ int	sort_three(t_clist **a)
 		clst_rev_rotate(a, 'a');
 	if ((*a)->n > (*a)->next->n)
 		clst_swap(a, 'a');
-	return (0);
 }
 
-int	get_right_pos(int n, t_clist *lst) // two different list
+void	sort_five(t_clist **a, t_clist **b, int size) // maybe optimize push first the 2nd biggest && remove size
 {
-	int		pos;
-	t_clist	*head;
-
-	pos = 1;
-	head = lst;
-	while (head->next != lst)
+	if (clst_size(*a) > 4)
 	{
-		if (n > head->n && n < head->next->n)
-			return (pos);
-		pos++;
-		head = head->next;
+		move_to_top(get_smallest_node(a), a, 'a');
+		clst_pop_push(a, b, 'b');
 	}
-	if (n > head->n && n > head->next->n)
-		return (pos);
-	return (0);
-}
-
-int	sort_five(t_clist **a, t_clist **b) // maybe optimize push first the 2nd biggest
-{
-	move_to_top(get_smallest_node(a), a, 'a');
-	clst_pop_push(a, b, 'b');
 	move_to_top(get_biggest_node(a), a, 'a');
 	clst_pop_push(a, b, 'b');
-	sort_three(a);
+	sort_three(a, size);
 	clst_pop_push(b, a, 'a');
 	clst_rotate(a, 'a');
 	clst_pop_push(b, a, 'a');
-	// move_to_top(get_biggest_node(a), a, 'a');
-	// clst_pop_push(a, b, 'b');
-	// move_to_top(get_biggest_node(a), a, 'a');
-	// clst_pop_push(a, b, 'b');
-	// clst_swap(b, 'b');
-	// sort_three(a);
-	// clst_pop_push(b, a, 'a');
-	// clst_pop_push(b, a, 'a');
-	// clst_rotate(a, 'a');
-	// clst_rotate(a, 'a');
-	return (0);
 }
 
-int	get_best_sort(int size, t_clist **a, t_clist **b)
+void	sort_hundred(t_clist **a, t_clist **b, int size)
+{
+	int		i;
+	int		n_times;
+	int		r;
+	t_clist	*head_a;
+
+	r = 0;
+	i = 0;
+	head_a = *a;
+	n_times = highest_set(get_biggest_node(a)->n);
+	while (i <= n_times)
+	{
+		ft_putstr_fd("\n[ New Iter ]\n\n", 1);
+		while (head_a->next != *a)
+		{
+			if (!(is_set(head_a->n, i)))
+			{
+				r = move_to_top(head_a, a, 'a');
+				clst_pop_push(a, b, 'b');
+				while (r > 0)
+				{
+					clst_rev_rotate(a, 'a');
+					r--;
+				}
+				head_a = *a;
+			}
+			else
+				head_a = head_a->next;
+		}
+		if (!(is_set(head_a->n, i)))
+		{
+			r = move_to_top(head_a, a, 'a');
+			clst_pop_push(a, b, 'b');
+			while (r > 0)
+			{
+				clst_rev_rotate(a, 'a');
+				r--;
+			}
+		}
+		while (clst_size(*b))
+			clst_pop_push(b, a, 'a');
+		head_a = *a;
+		ft_putstr_fd("\n[ b is empty ]\n\n", 1);
+		clst_print(*a, 'A');
+		clst_print(*b, 'B');
+
+		i++;
+	}
+	if (*b)
+		printf("(((( trash %d %d))))\n", (*b)->n, size);
+}
+
+void	find_best_sort(t_clist **a, t_clist **b, int size)
 {
 	if (size == 2)
-		return (sort_two(a));
+		sort_two(a);
 	if (size == 3)
-		return (sort_three(a));
-	// if (size == 4)
-	// 	return (sort_four(a));
-	if (size >= 5)
-		return (sort_five(a, b));
-	return (1);
-	printf("%p\n", b);
+		sort_three(a, size);
+	if (size == 4 || size == 5)
+		sort_five(a, b, size);
+	if (size > 5)
+		sort_hundred(a, b, size);
 }
 

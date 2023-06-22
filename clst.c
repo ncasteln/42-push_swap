@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/21 11:30:28 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:13:35 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,6 @@ t_clist	*clst_last(t_clist *lst)
 	return (head);
 }
 
-// t_clist	*clst_last(t_clist **lst)
-// {
-// 	t_clist	*head;
-
-// 	head = *lst;
-// 	while (head && head->next != *lst)
-// 		head = head->next;
-// 	return (head);
-// }
-
 void	clst_append(t_clist **lst, t_clist *new_node)
 {
 	if (*lst)
@@ -91,22 +81,29 @@ void	clst_clear(t_clist **lst)
 	free(cpy);
 }
 
-void	clst_print(t_clist *lst, char name)
+void	clst_print(t_clist *lst, char lst_name)
 {
 	t_clist	*head;
 
-	printf("[ %c ] ", name);
+	// printf("[ %c ] ", name);
+	ft_putstr_fd("[  ", 1);
+	ft_putchar_fd(lst_name, 1);
+	ft_putstr_fd("  ]", 1);
+	ft_putchar_fd('\n', 1);
 	head = NULL;
 	if (clst_size(lst))
 	{
 		head = lst;
 		while (head && head->next != lst)
 		{
-			printf("%d  ", head->n);
+			// printf("%d\t", head->n);
+			print_bits(head->n);
 			head = head->next;
 		}
-		printf("%d\n", head->n);
+		// printf("%d\n", head->n);
+		print_bits(head->n);
 	}
 	else
-		printf("(empty list)\n");
+		// printf("(empty list)\n");
+		ft_putstr_fd("(empty list)\n", 1);
 }
