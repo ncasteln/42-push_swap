@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/22 10:38:49 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:59:45 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_clist	*get_smallest_node(t_clist **lst);
 int		get_dist_upward(int n, t_clist *lst);
 int		get_dist_downward(int n, t_clist *lst);
 int		move_to_top(t_clist *node, t_clist **lst, char lst_name);
-// void	move_to_top_best_rotation(t_clist *node, t_clist **lst, char lst_name);
+int		move_to_top_best_rotation(t_clist *node, t_clist **lst, char lst_name);
 
 // ------------------------ BIWISE ------------------------
 void	print_bits(int n);

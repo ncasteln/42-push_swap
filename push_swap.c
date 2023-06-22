@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:21:34 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/22 10:16:09 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:54:25 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ static int	build_stack(t_clist **stack, int argc, char **argv)
 	int		i;
 	int		j;
 	char	**argv_splitted;
+	int		n_args;
 
 	argv_splitted = NULL;
 	i = 1;
+	n_args = 0;
 	while (i < argc)
 	{
 		if (ft_strchr(argv[i], ' '))
@@ -37,6 +39,7 @@ static int	build_stack(t_clist **stack, int argc, char **argv)
 					return (free_double_pointer(argv_splitted), 0);
 				j++;
 			}
+			n_args += j;
 		}
 		else
 		{
@@ -44,31 +47,34 @@ static int	build_stack(t_clist **stack, int argc, char **argv)
 				clst_append(stack, clst_newnode((int)ft_atol(argv[i])));
 			else
 				return (free_double_pointer(argv_splitted), 0);
+			n_args++;
 		}
 		i++;
 	}
-	return (free_double_pointer(argv_splitted), 1);
+	return (free_double_pointer(argv_splitted), n_args);
 }
 
 int	main(int argc, char **argv)
 {
 	t_clist *a;
 	t_clist *b;
+	int		n_args;
 
 	a = NULL;
 	b = NULL;
 	if (argc == 1)
 		return (0);
-	if (!(build_stack(&a, argc, argv)))
+	n_args = build_stack(&a, argc, argv);
+	if (!n_args)
 		return (clst_clear(&a), ft_putstr_fd("Error", 2), ft_putchar_fd('\n', 2), 1);
-	clst_print(a, 'A');
-	clst_print(b, 'B');
+	// clst_print(a, 'A');
+	// clst_print(b, 'B');
 	// if (!is_sorted(a, argc - 1))
 		// check if element is already sorted
-	find_best_sort(&a, &b, argc - 1);
+	find_best_sort(&a, &b, n_args);
 
-	printf("_ End of sorting _\n");
-	clst_print(a, 'A');
-	clst_print(b, 'B');
+	// printf("_ End of sorting _\n");
+	// clst_print(a, 'A');
+	// clst_print(b, 'B');
 	return (clst_clear(&a), clst_clear(&b), 0);
 }

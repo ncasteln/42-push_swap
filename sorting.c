@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:14:55 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/22 11:24:21 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/22 12:07:19 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	sort_five(t_clist **a, t_clist **b, int size) // maybe optimize push first 
 	clst_pop_push(b, a, 'a');
 }
 
-void	sort_hundred(t_clist **a, t_clist **b, int size)
+void	sort_hundred(t_clist **a, t_clist **b)
 {
 	int		i;
 	int		n_times;
@@ -64,7 +64,7 @@ void	sort_hundred(t_clist **a, t_clist **b, int size)
 	n_times = highest_set(get_biggest_node(a)->n);
 	while (i <= n_times)
 	{
-		ft_putstr_fd("\n[ New Iter ]\n\n", 1);
+		// ft_putstr_fd("\n[ New Iter ]\n\n", 1);
 		while (head_a->next != *a)
 		{
 			if (!(is_set(head_a->n, i)))
@@ -94,14 +94,12 @@ void	sort_hundred(t_clist **a, t_clist **b, int size)
 		while (clst_size(*b))
 			clst_pop_push(b, a, 'a');
 		head_a = *a;
-		ft_putstr_fd("\n[ b is empty ]\n\n", 1);
-		clst_print(*a, 'A');
-		clst_print(*b, 'B');
+		// ft_putstr_fd("\n[ b is empty ]\n\n", 1);
+		// clst_print(*a, 'A');
+		// clst_print(*b, 'B');
 
 		i++;
 	}
-	if (*b)
-		printf("(((( trash %d %d))))\n", (*b)->n, size);
 }
 
 void	find_best_sort(t_clist **a, t_clist **b, int size)
@@ -113,6 +111,6 @@ void	find_best_sort(t_clist **a, t_clist **b, int size)
 	if (size == 4 || size == 5)
 		sort_five(a, b, size);
 	if (size > 5)
-		sort_hundred(a, b, size);
+		sort_hundred(a, b);
 }
 

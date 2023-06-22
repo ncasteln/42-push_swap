@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 10:08:31 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/22 10:40:30 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/22 12:07:50 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	move_to_top(t_clist *node, t_clist **lst, char lst_name)
 
 	dist = get_dist_upward(node->n, *lst);
 	r = dist;
-	printf("NUMBER { %d } move to top\n", node->n);
+	// printf("NUMBER { %d } move to top\n", node->n);
 	while (dist > 0)
 	{
 		clst_rotate(lst, lst_name);
@@ -101,30 +101,33 @@ int	move_to_top(t_clist *node, t_clist **lst, char lst_name)
 /* Moves the node to the top/bottom of the list, upward or downward based on
 the shoretest distance from the top. When the dist is same, use normal
 rotation (shift up) */
-// void	move_to_top_best_rotation(t_clist *node, t_clist **lst, char lst_name)
-// {
-// 	int		dist;
-// 	char	direction;
+int	move_to_top_best_rotation(t_clist *node, t_clist **lst, char lst_name)
+{
+	int		r;
+	int		dist;
+	char	direction;
 
-// 	dist = get_dist_upward(node->n, *lst);
-// 	direction = 'u';
-// 	if (get_dist_upward(node->n, *lst) > get_dist_downward(node->n, *lst))
-// 	{
-// 		dist = get_dist_downward(node->n, *lst);
-// 		direction = 'd';
-// 	}
-// 	printf("NUMBER { %d } ", node->n);
-// 	printf("dist_upward is [%d] and dist_down is [%d]", get_dist_upward(node->n, *lst), get_dist_downward(node->n, *lst));
-// 	printf(" --- shift [%c]\n", direction);
-// 	while (dist > 0)
-// 	{
-// 		if (direction == 'u')
-// 			clst_rotate(lst, lst_name);
-// 		else
-// 			clst_rev_rotate(lst, lst_name);
-// 		dist--;
-// 	}
-// }
+	dist = get_dist_upward(node->n, *lst);
+	r = dist;
+	direction = 'u';
+	if (get_dist_upward(node->n, *lst) > get_dist_downward(node->n, *lst))
+	{
+		dist = get_dist_downward(node->n, *lst);
+		direction = 'd';
+	}
+	// printf("NUMBER { %d } ", node->n);
+	// printf("dist_upward is [%d] and dist_down is [%d]", get_dist_upward(node->n, *lst), get_dist_downward(node->n, *lst));
+	// printf(" --- shift [%c]\n", direction);
+	while (dist > 0)
+	{
+		if (direction == 'u')
+			clst_rotate(lst, lst_name);
+		else if (direction == 'd')
+			clst_rev_rotate(lst, lst_name);
+		dist--;
+	}
+	return (r);
+}
 
 /* Given a list, returns the correct position in which the node of another
 list should be, as an index */
