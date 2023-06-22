@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/22 11:59:45 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:19:31 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_clist
 {
 	int				n;
+	int				i;
 	struct s_clist	*next;
 }					t_clist;
 t_clist	*clst_newnode(int n);
@@ -41,6 +42,9 @@ void	clst_dr_rotate(t_clist **a, t_clist **b);
 // ------------------------ VALIDATION ------------------------
 int		is_valid_argc(int argc);
 int		is_valid_argv(char *argv, t_clist *lst);
+
+// ------------------------ INDEXING ------------------------
+int		set_indexes(t_clist **a);
 
 // ------------------------ SORTING ------------------------
 int		is_sorted(t_clist *lst, int size);

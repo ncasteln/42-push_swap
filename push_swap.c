@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:21:34 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/22 13:33:45 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:53:25 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,22 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (argc == 1)
-		return (0);
+		return (0); // 0 or 1 ?????
 	n_args = build_stack(&a, argc, argv);
 	if (!n_args)
 		return (clst_clear(&a), ft_putstr_fd("Error", 2), ft_putchar_fd('\n', 2), 1);
-	// clst_print(a, 'A');
+	clst_print(a, 'A');
 	// clst_print(b, 'B');
 	// if (!is_sorted(a, argc - 1))
 		// check if element is already sorted
+
+	if(!set_indexes(&a))
+		return (clst_clear(&a), 0);
+
 	find_best_sort(&a, &b, n_args);
 
-	// printf("_ End of sorting _\n");
-	// clst_print(a, 'A');
-	// clst_print(b, 'B');
+	printf("_ End of sorting _\n");
+	clst_print(a, 'A');
+	clst_print(b, 'B');
 	return (clst_clear(&a), clst_clear(&b), 0);
 }

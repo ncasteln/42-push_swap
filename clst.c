@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/22 11:30:21 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:40:48 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,25 +85,25 @@ void	clst_print(t_clist *lst, char lst_name)
 {
 	t_clist	*head;
 
-	// printf("[ %c ] ", name);
-	ft_putstr_fd("[  ", 1);
-	ft_putchar_fd(lst_name, 1);
-	ft_putstr_fd("  ]", 1);
-	ft_putchar_fd('\n', 1);
+	printf("[ %c ] \n", lst_name);
+	// ft_putstr_fd("[  ", 1);
+	// ft_putchar_fd(lst_name, 1);
+	// ft_putstr_fd("  ]", 1);
+	// ft_putchar_fd('\n', 1);
 	head = NULL;
 	if (clst_size(lst))
 	{
 		head = lst;
 		while (head && head->next != lst)
 		{
-			// printf("%d\t", head->n);
-			print_bits(head->n);
+			printf("%d   [%d]\n", head->n, head->i);
+			// print_bits(head->n);
 			head = head->next;
 		}
-		// printf("%d\n", head->n);
-		print_bits(head->n);
+		printf("%d   [%d]\n", head->n, head->i);
+		// print_bits(head->n);
 	}
 	else
-		// printf("(empty list)\n");
-		ft_putstr_fd("(empty list)\n", 1);
+		printf("(empty list)\n");
+		// ft_putstr_fd("(empty list)\n", 1);
 }
