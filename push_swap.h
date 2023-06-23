@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/22 15:19:31 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/23 11:13:11 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,17 @@ int		is_valid_argc(int argc);
 int		is_valid_argv(char *argv, t_clist *lst);
 
 // ------------------------ INDEXING ------------------------
-int		set_indexes(t_clist **a);
+void	set_indexes(t_clist **a);
 
 // ------------------------ SORTING ------------------------
-int		is_sorted(t_clist *lst, int size);
-int		is_rev_sorted(t_clist *lst, int size);
-void	find_best_sort(t_clist **a, t_clist **b, int size);
+void	sort_two(t_clist **a);
+void	sort_three(t_clist **a);
+void	sort_five(t_clist **a, t_clist **b);
+void	sort_six_and_more(t_clist **a, t_clist **b);
+
+// ------------------------ SORTING UTILS ------------------------
+int		is_sorted(t_clist *lst);
+int		is_rev_sorted(t_clist *lst);
 t_clist	*get_biggest_node(t_clist **lst);
 t_clist	*get_smallest_node(t_clist **lst);
 int		get_dist_upward(int n, t_clist *lst);
@@ -65,7 +70,6 @@ int		is_set(int n, int i);
 // ------------------------ UTILS ------------------------
 int		ft_isdigit(int c);
 int		ft_strlen(char *str);
-int		error(void);
 char	*ft_strchr(char *str, int c);
 char	**ft_split(char *s, char c);
 long	ft_atol(char *str);

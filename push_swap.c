@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:21:34 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 10:16:32 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/23 11:22:38 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,22 +63,23 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (argc == 1)
-		return (0); // 0 or 1 ?????
+		return (0);
 	n_args = build_stack(&a, argc, argv);
 	if (!n_args)
-		return (clst_clear(&a), ft_putstr_fd("Error", 2), ft_putchar_fd('\n', 2), 1);
-	// clst_print(a, 'A');
-	// clst_print(b, 'B');
-	// if (!is_sorted(a, argc - 1))
-		// check if element is already sorted
-
-	if(!set_indexes(&a))
+		return (clst_clear(&a), ft_putstr_fd("Error\n", 2), 1);
+	if (is_sorted(a))
 		return (clst_clear(&a), 0);
-
-	find_best_sort(&a, &b, n_args);
-
-	// printf("_ End of sorting _\n");
-	// clst_print(a, 'A');
-	// clst_print(b, 'B');
+	if (n_args == 2)
+		sort_two(&a);
+	if (n_args == 3)
+		sort_three(&a);
+	if (n_args == 4 || n_args == 5)
+		sort_five(&a, &b);
+	else
+	{
+		set_indexes(&a);
+		sort_six_and_more(&a, &b);
+	}
+	clst_print(a, 'A');
 	return (clst_clear(&a), clst_clear(&b), 0);
 }

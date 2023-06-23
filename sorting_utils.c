@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 10:08:31 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/22 12:09:37 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/23 11:09:29 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,45 +150,45 @@ int	get_right_pos(int n, t_clist *lst)
 	return (0);
 }
 
-/* Check if the list is sorted in one of two direction
-descending or ascending */
-int	is_sorted(t_clist *lst, int size)
+/* Check if the list is sorted in one of two direction descending or ascending */
+int	is_sorted(t_clist *lst)
 {
+	int		i;
 	t_clist *head;
 	int		counter;
 
 	head = lst;
 	counter = 0;
-	while ((head->next != lst) && (head->n < head->next->n))
+	i = 0;
+	while (i < (clst_size(lst) - 1))
 	{
+		if (head->n < head->next->n)
+			counter++;
 		head = head->next;
-		counter++;
+		i++;
 	}
-	counter++;
-	printf("size [%d]\n", size);
-	printf("counter [%d]\n", counter);
-	if (size == counter)
-	{
-		printf("[ SORTED ]\n");
+	if ((clst_size(lst) - 1) == counter)
 		return (1);
-	}
 	return (0);
 }
 
-int	is_rev_sorted(t_clist *lst, int size)
+int	is_rev_sorted(t_clist *lst)
 {
+	int		i;
 	t_clist *head;
 	int		counter;
 
 	head = lst;
 	counter = 0;
-	while ((head->next != lst) && (head->n > head->next->n))
+	i = 0;
+	while (i < (clst_size(lst) - 1))
 	{
+		if (head->n > head->next->n)
+			counter++;
 		head = head->next;
-		counter++;
+		i++;
 	}
-	counter++;
-	if (size == counter)
+	if ((clst_size(lst) - 1) == counter)
 		return (1);
 	return (0);
 }

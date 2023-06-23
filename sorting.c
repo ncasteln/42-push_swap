@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:14:55 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 09:31:28 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/23 11:21:21 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sort_three(t_clist **a)
 {
 	if (get_biggest_node(a)->n == (*a)->n)
 	{
-		if (is_rev_sorted(*a, 3))
+		if (is_rev_sorted(*a))
 		{
 			clst_swap(a, 'a');
 			clst_rev_rotate(a, 'a');
@@ -77,16 +77,4 @@ void	sort_six_and_more(t_clist **a, t_clist **b)
 			clst_pop_push(b, a, 'a');
 		i++;
 	}
-}
-
-void	find_best_sort(t_clist **a, t_clist **b, int n_args)
-{
-	if (n_args == 2)
-		sort_two(a);
-	if (n_args == 3)
-		sort_three(a);
-	if (n_args == 4 || n_args == 5)
-		sort_five(a, b);
-	if (n_args > 5)
-		sort_six_and_more(a, b);
 }
