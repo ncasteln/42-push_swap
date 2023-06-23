@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 10:08:31 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 11:09:29 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/23 17:01:16 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_clist	*get_biggest_node(t_clist **lst)
 t_clist	*get_smallest_node(t_clist **lst)
 {
 	t_clist *head;
-	t_clist	*smallest;
+	t_clist *smallest;
 
 	head = *lst;
 	smallest = clst_last(*lst);
@@ -103,30 +103,27 @@ the shoretest distance from the top. When the dist is same, use normal
 rotation (shift up) */
 int	move_to_top_best_rotation(t_clist *node, t_clist **lst, char lst_name)
 {
-	int		r;
 	int		dist;
 	char	direction;
 
 	dist = get_dist_upward(node->n, *lst);
-	r = dist;
 	direction = 'u';
 	if (get_dist_upward(node->n, *lst) > get_dist_downward(node->n, *lst))
 	{
 		dist = get_dist_downward(node->n, *lst);
 		direction = 'd';
 	}
-	// printf("NUMBER { %d } ", node->n);
-	// printf("dist_upward is [%d] and dist_down is [%d]", get_dist_upward(node->n, *lst), get_dist_downward(node->n, *lst));
-	// printf(" --- shift [%c]\n", direction);
 	while (dist > 0)
 	{
+		if (is_sorted(*lst))
+			return (1);
 		if (direction == 'u')
 			clst_rotate(lst, lst_name);
 		else if (direction == 'd')
 			clst_rev_rotate(lst, lst_name);
 		dist--;
 	}
-	return (r);
+	return (0);
 }
 
 /* Given a list, returns the correct position in which the node of another

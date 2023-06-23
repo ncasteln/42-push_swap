@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:21:34 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 13:04:40 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/23 17:23:47 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	build_stack(t_clist **stack, int argc, char **argv)
 		{
 			free_double_pointer(argv_splitted);
 			argv_splitted = ft_split(argv[i], ' ');
-			if (!argv_splitted[0]) // ----- protectable also inside split
+			if (!argv_splitted[0]) // -------------------- protectable also inside split
 				return (0);
 			j = 0;
 			while (argv_splitted[j])
@@ -80,6 +80,6 @@ int	main(int argc, char **argv)
 		set_indexes(&a);
 		sort_six_and_more(&a, &b);
 	}
-	clst_print(a, 'A'); // --- REMOVE ---
+	// clst_print(a, 'A'); // ------------------ REMOVE ------------------
 	return (clst_clear(&a), clst_clear(&b), 0);
 }
