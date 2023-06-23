@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:31:13 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/21 13:44:42 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/23 12:42:10 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,22 @@ void	clst_pop_push(t_clist **src, t_clist **dst, char lst_name)
 	}
 }
 
-void	clst_swap(t_clist **lst, char lst_name) // change the contents and NOT the pointer
+void	clst_swap(t_clist **lst, char lst_name)
 {
-	int	temp;
+	t_clist	*temp;
 
+	temp = NULL;
 	if (clst_size(*lst) > 1)
 	{
-		temp = (*lst)->n;
-		(*lst)->n = (*lst)->next->n;
-		(*lst)->next->n = temp;
+		temp = (*lst)->next;
+		(*lst)->next = (*lst)->next->next;
+		temp->next = *lst;
+		clst_last(*lst)->next = temp;
+		*lst = clst_last(*lst);
 		ft_putchar_fd('s', 1);
 		if (lst_name == 'a' || lst_name == 'b')
-		{
 			ft_putchar_fd(lst_name, 1);
-			ft_putchar_fd('\n', 1);
-		}
+		ft_putchar_fd('\n', 1);
 	}
 }
 
@@ -81,8 +82,7 @@ void	clst_ss(t_clist **a, t_clist **b)
 {
 	clst_swap(a, ' ');
 	clst_swap(b, ' ');
-	ft_putchar_fd('s', 1);
-	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("s\n", 1);
 }
 
 void	clst_rotate(t_clist **lst, char lst_name)
@@ -92,10 +92,8 @@ void	clst_rotate(t_clist **lst, char lst_name)
 		*lst = (*lst)->next;
 		ft_putchar_fd('r', 1);
 		if (lst_name == 'a' || lst_name == 'b')
-		{
 			ft_putchar_fd(lst_name, 1);
-			ft_putchar_fd('\n', 1);
-		}
+		ft_putchar_fd('\n', 1);
 	}
 }
 
@@ -103,8 +101,7 @@ void	clst_d_rotate(t_clist **a, t_clist **b)
 {
 	clst_rotate(a, ' ');
 	clst_rotate(b, ' ');
-	ft_putchar_fd('r', 1);
-	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("r\n", 1);
 }
 
 void	clst_rev_rotate(t_clist **lst, char lst_name)
@@ -114,10 +111,8 @@ void	clst_rev_rotate(t_clist **lst, char lst_name)
 		*lst = clst_last(*lst);
 		ft_putstr_fd("rr", 1);
 		if (lst_name == 'a' || lst_name == 'b')
-		{
 			ft_putchar_fd(lst_name, 1);
-			ft_putchar_fd('\n', 1);
-		}
+		ft_putchar_fd('\n', 1);
 	}
 }
 
@@ -125,6 +120,5 @@ void	clst_dr_rotate(t_clist **a, t_clist **b)
 {
 	clst_rev_rotate(a, ' ');
 	clst_rev_rotate(b, ' ');
-	ft_putchar_fd('r', 1);
-	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("r\n", 1);
 }

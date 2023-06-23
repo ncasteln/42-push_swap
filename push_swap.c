@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:21:34 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 11:22:38 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/23 13:04:40 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,17 +69,17 @@ int	main(int argc, char **argv)
 		return (clst_clear(&a), ft_putstr_fd("Error\n", 2), 1);
 	if (is_sorted(a))
 		return (clst_clear(&a), 0);
-	if (n_args == 2)
+	else if (n_args == 2)
 		sort_two(&a);
-	if (n_args == 3)
+	else if (n_args == 3)
 		sort_three(&a);
-	if (n_args == 4 || n_args == 5)
+	else if (n_args == 4 || n_args == 5)
 		sort_five(&a, &b);
 	else
 	{
 		set_indexes(&a);
 		sort_six_and_more(&a, &b);
 	}
-	clst_print(a, 'A');
+	clst_print(a, 'A'); // --- REMOVE ---
 	return (clst_clear(&a), clst_clear(&b), 0);
 }
