@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:21:34 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/22 16:53:25 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/23 09:16:01 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int	main(int argc, char **argv)
 
 	find_best_sort(&a, &b, n_args);
 
-	printf("_ End of sorting _\n");
-	clst_print(a, 'A');
-	clst_print(b, 'B');
+	// printf("_ End of sorting _\n");
+	// clst_print(a, 'A');
+	// clst_print(b, 'B');
 	return (clst_clear(&a), clst_clear(&b), 0);
 }
