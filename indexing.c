@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:54:58 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 09:30:30 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/23 10:16:17 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	is_already_set(t_clist *lst, int n)
 	{
 		if (head->n == n && head->i > 0)
 		{
-			printf(" { %d } is already SET!\n", n);
+			// printf(" { %d } is already SET!\n", n);
 			return (1);
 		}
 		head = head->next;
@@ -58,7 +58,7 @@ void	store_index(int i, int n, t_clist **lst)
 	int	j;
 	t_clist	*head;
 
-	printf("ROUND n[%d] takes i[%d]\n\n", n, i);
+	// printf("ROUND n[%d] takes i[%d]\n\n", n, i);
 	head = *lst;
 	j = 0;
 	while (j < clst_size(*lst))
@@ -70,29 +70,32 @@ void	store_index(int i, int n, t_clist **lst)
 	}
 }
 
-void	set_negative_indexes(t_clist **lst)
+void	set_neg_indexes(t_clist **lst)
 {
 	int		i;
 	int		j;
+	int		n_neg;
 	int		small_n;
 	int		small_i;
 	t_clist *head;
 
 	i = count_pos_neg(*lst, '-'); // only difference
-	printf(" N of NEG is (%d)\n", i);
+	// printf(" N of NEG is (%d)\n", i);
 	while (i > 0)
 	{
 		small_n = 0;
 		small_i = i;
 		head = *lst;
-		j = count_pos_neg(*lst, '-'); // only difference
-		while (j > 0)
+		j = clst_size(*lst); // only difference
+		n_neg = count_pos_neg(*lst, '-'); // only difference
+		while (j > 0 && n_neg > 0)
 		{
-			printf(" Turn for (((  %d  )))\n", head->n);
+			// printf(" Turn for (((  %d  )))\n", head->n);
 			if ((head->n < small_n) && !is_already_set(*lst, head->n)) // only difference
 			{
-				printf("--- biggest found ---\n");
+				// printf("--- biggest found ---\n");
 				small_n = head->n;
+				n_neg--;
 			}
 			head = head->next;
 			j--;
@@ -103,37 +106,41 @@ void	set_negative_indexes(t_clist **lst)
 
 	i = 0;
 	head = *lst;
-	while (i < count_pos_neg(*lst, '-'))
+	while (i < clst_size(*lst))
 	{
-		head->i *= -1;
+		if (head->n < 0)
+			head->i *= -1;
 		head = head->next;
 		i++;
 	}
 }
 
-void	set_positive_indexes(t_clist **lst)
+void	set_pos_indexes(t_clist **lst)
 {
 	int		i;
 	int		j;
+	int		n_pos;
 	int		big_n;
 	int		big_i;
 	t_clist *head;
 
 	i = count_pos_neg(*lst, '+');
-	printf(" N of POS is (%d)\n", i);
+	// printf(" N of POS is (%d)\n", i);
 	while (i > 0)
 	{
 		big_n = 0;
 		big_i = i;
 		head = *lst;
-		j = count_pos_neg(*lst, '+');
-		while (j > 0)
+		j = clst_size(*lst);
+		n_pos = count_pos_neg(*lst, '+');
+		while (j > 0 && n_pos > 0)
 		{
-			printf(" Turn for (((  %d  )))\n", head->n);
+			// printf(" Turn for (((  %d  )))\n", head->n);
 			if ((head->n > big_n) && !is_already_set(*lst, head->n))
 			{
-				printf("--- biggest found ---\n");
+				// printf("--- biggest found ---\n");
 				big_n = head->n;
+				n_pos--;
 			}
 			head = head->next;
 			j--;
@@ -143,10 +150,30 @@ void	set_positive_indexes(t_clist **lst)
 	}
 }
 
+void	translate_indexes_to_pos(t_clist **lst)
+{
+	int		i;
+	int		smallest;
+	t_clist	*head;
+
+	i = 0;
+	head = *lst;
+	smallest = (get_smallest_node(lst)->i) * -1;
+	// printf("Smallest = %d\n", smallest);
+	while (i < clst_size(*lst))
+	{
+		// printf("Index [%d] become [%d]\n", head->i, head->i + smallest);
+		head->i += smallest;
+		head = head->next;
+		i++;
+	}
+}
+
 int	set_indexes(t_clist **lst)
 {
-	set_positive_indexes(lst);
-	set_negative_indexes(lst);
+	set_pos_indexes(lst);
+	set_neg_indexes(lst);
+	translate_indexes_to_pos(lst);
 	// printf("After Indexing\n");
 	// clst_print(*lst, 'A');
 	return (1);
@@ -241,7 +268,7 @@ int	set_indexes(t_clist **lst)
 // 	}
 // }
 
-// void	set_positive_indexes(t_clist **lst)
+// void	set_pos_indexes(t_clist **lst)
 // {
 // 	int	i;
 // 	int	j;
@@ -298,14 +325,14 @@ int	set_indexes(t_clist **lst)
 // 		{
 // 			if ((head->n >= biggest->n) && !is_already_set(*lst, head->n))
 // 				biggest->n = head->n;
-// 			printf("head->n %d    ", head->n);
-// 			printf("head->i [%d]    ", head->i);
-// 			printf("big->n [%d]    ", biggest->n);
-// 			printf("already set: [%d]\n", is_already_set(*lst, i));
+// // 			printf("head->n %d    ", head->n);
+// // 			printf("head->i [%d]    ", head->i);
+// // 			printf("big->n [%d]    ", biggest->n);
+// // 			printf("already set: [%d]\n", is_already_set(*lst, i));
 // 			head = head->next;
 // 			i--;
 // 		}
-// 		printf("set biggest->n as [%d] and i as [%d]\n\n", biggest->n, biggest->i);
+// // 		printf("set biggest->n as [%d] and i as [%d]\n\n", biggest->n, biggest->i);
 
 
 // 		// store the index found in correct position

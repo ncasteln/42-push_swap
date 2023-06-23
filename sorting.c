@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:14:55 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 09:30:48 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/23 09:31:28 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ void	sort_six_and_more(t_clist **a, t_clist **b)
 
 	i = 0;
 	size = clst_size(*a);
-	n_times = highest_set(get_biggest_node(a)->n);
+	n_times = highest_set(get_biggest_node(a)->i);
 	while (i <= n_times)
 	{
 		j = 0;
 		while (j < size)
 		{
-			if (!is_set((*a)->n, i))
+			if (!is_set((*a)->i, i))
 				clst_pop_push(a, b, 'b');
 			else
 				clst_rotate(a, 'a');

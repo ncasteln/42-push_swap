@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:21:34 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 09:16:01 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/23 10:16:32 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int argc, char **argv)
 	n_args = build_stack(&a, argc, argv);
 	if (!n_args)
 		return (clst_clear(&a), ft_putstr_fd("Error", 2), ft_putchar_fd('\n', 2), 1);
-	clst_print(a, 'A');
+	// clst_print(a, 'A');
 	// clst_print(b, 'B');
 	// if (!is_sorted(a, argc - 1))
 		// check if element is already sorted
