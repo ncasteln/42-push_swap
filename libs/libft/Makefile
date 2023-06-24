@@ -6,7 +6,7 @@
 #    By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 15:52:36 by ncasteln          #+#    #+#              #
-#    Updated: 2023/06/24 15:07:33 by ncasteln         ###   ########.fr        #
+#    Updated: 2023/06/24 15:40:08 by ncasteln         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ OBJS = $(SRC:.c=.o)
 
 BONUS_OBJS = $(BONUS_SRC:.c=.o)
 
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME) bonus
 

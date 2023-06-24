@@ -6,15 +6,15 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:52:31 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 13:01:04 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 17:17:54 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	is_valid_string_format(char *s)
+static size_t	is_valid_string_format(char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put.c                                           :+:      :+:    :+:   */
+/*   free_double.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/15 16:08:45 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 10:40:28 by ncasteln         ###   ########.fr       */
+/*   Created: 2023/03/23 16:47:36 by ncasteln          #+#    #+#             */
+/*   Updated: 2023/06/24 17:24:02 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	free_double_pointer(char **s)
 {
-	write(fd, &c, 1);
-}
+	int	i;
+	int	j;
 
-void	ft_putstr_fd(char *s, int fd)
-{
-	while (*s)
+	if (!s)
+		return ;
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		ft_putchar_fd(*s, fd);
-		s++;
+		free(s[i]);
+		i++;
 	}
+	free(s);
 }

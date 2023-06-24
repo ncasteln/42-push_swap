@@ -6,15 +6,16 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 14:35:53 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 17:33:48 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include "./libs/ft_printf/ft_printf.h"
+# include "./libs/libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 // ------------------------ CLISTS ------------------------
 typedef struct s_clist
@@ -28,7 +29,6 @@ int		clst_size(t_clist *lst);
 t_clist	*clst_last(t_clist *lst);
 void	clst_append(t_clist **lst, t_clist *node);
 void	clst_clear(t_clist **lst);
-void	clst_print(t_clist *lst, char lst_name);
 
 // ------------------------ CLISTS MOVES ------------------------
 void	clst_pop_push(t_clist **src, t_clist **dst, char lst_name);
@@ -42,6 +42,7 @@ void	clst_dr_rotate(t_clist **a, t_clist **b);
 // ------------------------ VALIDATION ------------------------
 int		is_valid_argc(int argc);
 int		is_valid_argv(char *argv, t_clist *lst);
+long	ft_atol(char *str);
 
 // ------------------------ INDEXING ------------------------
 void	set_indexes(t_clist **a);
@@ -69,14 +70,8 @@ int		highest_set(int n);
 int		is_set(int n, int i);
 
 // ------------------------ UTILS ------------------------
-int		ft_isdigit(int c);
-int		ft_strlen(char *str);
-char	*ft_strchr(char *str, int c);
-char	**ft_split(char *s, char c);
-long	ft_atol(char *str);
-void	free_double_pointer(char **s);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putchar_fd(char c, int fd);
 void	print_bits(int n);
+void	free_double_pointer(char **s);
+void	clst_print(t_clist *lst, char lst_name);
 
 #endif

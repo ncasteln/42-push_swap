@@ -6,18 +6,11 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 13:30:29 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 13:02:53 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 17:32:53 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int	ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (1);
-	return (0);
-}
 
 long	ft_atol(char *str)
 {
