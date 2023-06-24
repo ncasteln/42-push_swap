@@ -6,34 +6,29 @@
 #    By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 15:23:28 by ncasteln          #+#    #+#              #
-#    Updated: 2023/06/22 13:55:17 by ncasteln         ###   ########.fr        #
+#    Updated: 2023/06/24 13:21:08 by ncasteln         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+FTPRINTF = ./ft_printf/libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = push_swap.c \
-	clst.c \
-	clst_moves.c \
-	validation.c \
-	./utils/ft_strchr.c \
-	./utils/ft_atol.c \
-	./utils/ft_split.c \
-	./utils/ft_put.c \
-	sorting.c \
-	sorting_utils.c \
-	bit_operations.c \
-	indexing.c
+	./clst/basic_op.c \
+	./clst/stack_op.c \
+	./validation/validation.c \
+	./validation/ft_strchr.c \
+	./validation/ft_atol.c \
+	./validation/ft_split.c \
+	./sorting/sorting.c \
+	./sorting/sorting_utils.c \
+	./bit/bit_op.c \
+	./indexing/indexing.c \
+	./print/ft_put.c \
+	./print/print_bits.c \
+	./print/clst_print.c
 OBJS = $(SRC:.c=.o)
-
-CLST = clst.c \
-	clst_test.c \
-	clst_moves.c \
-	sorting.c \
-	./utils/ft_atol.c \
-	./utils/ft_split.c
-CLSTOBJS = $(CLST:.c=.o)
 
 all: $(NAME)
 
@@ -50,12 +45,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-# CLISTS TESTING
-clst: $(CLSTOBJS)
-	cc $(CLSTOBJS) $(CFLAGS) -o $@
-
-clst_clean:
-	rm -f $(CLSTOBJS) clst
 
 .PHONY: all clean fclean re

@@ -1,47 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   bit_op.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 13:30:29 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 09:47:45 by ncasteln         ###   ########.fr       */
+/*   Created: 2023/06/22 08:31:26 by ncasteln          #+#    #+#             */
+/*   Updated: 2023/06/24 13:08:17 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_isdigit(int c)
+/* Cehck if the current bit of [n], shifted for [i] position, is set or not */
+int	is_set(int n, int i)
 {
-	if (c >= 48 && c <= 57)
+	if ((n >> i) & 0b00000001)
 		return (1);
 	return (0);
 }
 
-long	ft_atol(char *str)
+/* Return the index of the highest set bit (from l to r),
+which is also the number of times I want o push from a to be and viceversa */
+int	highest_set(int n)
 {
-	size_t	i;
-	long	sign;
-	long	n;
+	int	int_bits;
+	int	i;
+	int	comp;
 
+	int_bits = sizeof(int) * 8;
+	comp = 1 << (int_bits - 1);
 	i = 0;
-	sign = 1;
-	n = 0;
-	while ((str[i] == 32) || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-')
+	while (i < int_bits)
 	{
-		sign = -1;
+		if ((n << i) & comp)
+			return (int_bits - i - 1);
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (ft_isdigit(str[i]))
-	{
-		n = n * 10;
-		n = n + (str[i] - '0');
-		i++;
-	}
-	return (n * sign);
+	return (int_bits - i - 1);
 }

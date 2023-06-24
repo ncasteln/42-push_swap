@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bit_operations.c                                   :+:      :+:    :+:   */
+/*   print_bits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 08:31:26 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 10:43:25 by ncasteln         ###   ########.fr       */
+/*   Created: 2023/06/24 13:04:10 by ncasteln          #+#    #+#             */
+/*   Updated: 2023/06/24 13:05:39 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
+#include "../push_swap.h"
 
 static void	fill(char *p, int n, int sign, size_t len)
 {
@@ -96,33 +96,6 @@ static char	*ft_itoa(int n)
 	return (p);
 }
 
-int	is_set(int n, int i)
-{
-	if ((n >> i) & 0b00000001)
-		return (1);
-	return (0);
-}
-
-/* Return the index of the highest set bit (from l to r),
-which is also the number of times I want o push from a to be and viceversa */
-int	highest_set(int n)
-{
-	int	int_bits;
-	int	i;
-	int	comp;
-
-	int_bits = sizeof(int) * 8;
-	comp = 1 << (int_bits - 1);
-	i = 0;
-	while (i < int_bits)
-	{
-		if ((n << i) & comp)
-			return (int_bits - i - 1);
-		i++;
-	}
-	return (int_bits - i - 1);
-}
-
 void	print_bits(int n)
 {
 	int	int_bits;
@@ -150,3 +123,4 @@ void	print_bits(int n)
 		ft_putstr_fd("  not_set", 1);
 	ft_putchar_fd('\n', 1);
 }
+

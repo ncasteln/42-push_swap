@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 12:26:58 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 13:09:51 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		get_dist_downward(int n, t_clist *lst);
 int		move_to_top(t_clist *node, t_clist **lst, char lst_name);
 int		move_to_top_best_rotation(t_clist *node, t_clist **lst, char lst_name);
 
-// ------------------------ BIWISE ------------------------
+// ------------------------ BITWISE ------------------------
 void	print_bits(int n);
 int		highest_set(int n);
 int		is_set(int n, int i);
@@ -77,5 +77,6 @@ long	ft_atol(char *str);
 void	free_double_pointer(char **s);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
+void	print_bits(int n);
 
 #endif

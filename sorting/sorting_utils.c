@@ -6,11 +6,11 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 10:08:31 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 12:07:23 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 13:16:36 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
+#include "../push_swap.h"
 
 /* Return the biggest/smalles number of the list  */
 t_clist	*get_biggest_node(t_clist **lst)

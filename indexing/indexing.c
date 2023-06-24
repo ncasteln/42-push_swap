@@ -6,11 +6,11 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:54:58 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 13:44:49 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 13:03:29 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
+#include "../push_swap.h"
 
 static int	is_already_set(t_clist *lst, int n)
 {

@@ -6,22 +6,20 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:31:13 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 12:26:47 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 12:58:15 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
+#include "../push_swap.h"
 
 static void	clst_push(t_clist **lst, t_clist *new_node)
 {
 	t_clist	*last;
 
-	if (!new_node)
-		return ; // error??
-	if (*lst) // if there is at least one item
+	if (*lst)
 	{
 		last = clst_last(*lst);
-		last->next = new_node; // works only with the first because of NULL
+		last->next = new_node;
 		new_node->next = *lst;
 		*lst = new_node;
 	}
@@ -31,7 +29,7 @@ static void	clst_push(t_clist **lst, t_clist *new_node)
 
 static t_clist	*clst_pop(t_clist **lst)
 {
-	t_clist *popped;
+	t_clist	*popped;
 
 	popped = *lst;
 	if (*lst)
@@ -87,7 +85,7 @@ void	clst_d_swap(t_clist **a, t_clist **b)
 
 void	clst_rotate(t_clist **lst, char lst_name)
 {
-	if (clst_size(*lst) > 1) // --- not explicit in subject
+	if (clst_size(*lst) > 1)
 	{
 		*lst = (*lst)->next;
 		ft_putchar_fd('r', 1);
@@ -106,7 +104,7 @@ void	clst_d_rotate(t_clist **a, t_clist **b)
 
 void	clst_rev_rotate(t_clist **lst, char lst_name)
 {
-	if (clst_size(*lst) > 1) // --- not explicit in subject
+	if (clst_size(*lst) > 1)
 	{
 		*lst = clst_last(*lst);
 		ft_putstr_fd("rr", 1);
