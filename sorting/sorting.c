@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:14:55 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 12:57:39 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 18:00:32 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,12 @@ void	sort_two(t_clist **a)
 
 void	sort_three(t_clist **a)
 {
-	int		big;
-	int		small;
 	t_clist *head;
 
-	big = get_biggest_node(a)->n;
-	small = get_smallest_node(a)->n;
 	head = *a;
-	if (big == head->next->n)
+	if (get_biggest_node(a)->n == head->next->n)
 	{
-		if (small == head->n)
+		if (get_smallest_node(a)->n == head->n)
 		{
 			clst_swap(a, 'a');
 			clst_rotate(a, 'a');
@@ -37,9 +33,9 @@ void	sort_three(t_clist **a)
 		else
 			clst_rev_rotate(a, 'a');
 	}
-	else if (big == head->n)
+	else if (get_biggest_node(a)->n == head->n)
 	{
-		if (small == head->next->n)
+		if (get_smallest_node(a)->n == head->next->n)
 			clst_rotate(a, 'a');
 		else
 		{

@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 17:33:48 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 18:00:29 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define PUSH_SWAP_H
 # include "./libs/ft_printf/ft_printf.h"
 # include "./libs/libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
 
 // ------------------------ CLISTS ------------------------
 typedef struct s_clist
@@ -30,7 +28,7 @@ t_clist	*clst_last(t_clist *lst);
 void	clst_append(t_clist **lst, t_clist *node);
 void	clst_clear(t_clist **lst);
 
-// ------------------------ CLISTS MOVES ------------------------
+// ------------------------ STACK MOVES ------------------------
 void	clst_pop_push(t_clist **src, t_clist **dst, char lst_name);
 void	clst_swap(t_clist **lst, char lst_name);
 void	clst_d_swap(t_clist **a, t_clist **b);
@@ -40,9 +38,8 @@ void	clst_rev_rotate(t_clist **lst, char lst_name);
 void	clst_dr_rotate(t_clist **a, t_clist **b);
 
 // ------------------------ VALIDATION ------------------------
-int		is_valid_argc(int argc);
-int		is_valid_argv(char *argv, t_clist *lst);
 long	ft_atol(char *str);
+int		is_valid_argv(char *argv, t_clist *lst);
 
 // ------------------------ INDEXING ------------------------
 void	set_indexes(t_clist **a);
@@ -65,7 +62,6 @@ int		move_to_top(t_clist *node, t_clist **lst, char lst_name);
 int		move_to_top_best_rotation(t_clist *node, t_clist **lst, char lst_name);
 
 // ------------------------ BITWISE ------------------------
-void	print_bits(int n);
 int		highest_set(int n);
 int		is_set(int n, int i);
 

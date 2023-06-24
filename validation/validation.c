@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:52:31 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 17:17:54 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 17:42:21 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int	is_valid_argv(char *argv, t_clist *lst)
 	if (!is_valid_string_format(argv))
 		return (0);
 	n = ft_atol(argv);
-	// printf("n = %ld\n", n);
 	if (n != (int)n)
 		return (0);
 	if (has_duplicates((int)n, lst))

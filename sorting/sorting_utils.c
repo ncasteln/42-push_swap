@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 10:08:31 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 13:16:36 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 18:00:25 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,21 +82,21 @@ int	get_dist_downward(int n, t_clist *lst)
 }
 
 /* Moves the node to the top/bottom of the list, returning the number of rotation */
-int	move_to_top(t_clist *node, t_clist **lst, char lst_name)
-{
-	int	dist;
-	int	r;
+// int	move_to_top(t_clist *node, t_clist **lst, char lst_name)
+// {
+// 	int	dist;
+// 	int	r;
 
-	dist = get_dist_upward(node->n, *lst);
-	r = dist;
-	// printf("NUMBER { %d } move to top\n", node->n);
-	while (dist > 0)
-	{
-		clst_rotate(lst, lst_name);
-		dist--;
-	}
-	return (r);
-}
+// 	dist = get_dist_upward(node->n, *lst);
+// 	r = dist;
+// 	// printf("NUMBER { %d } move to top\n", node->n);
+// 	while (dist > 0)
+// 	{
+// 		clst_rotate(lst, lst_name);
+// 		dist--;
+// 	}
+// 	return (r);
+// }
 
 /* Moves the node to the top/bottom of the list, upward or downward based on
 the shoretest distance from the top. When the dist is same, use normal
@@ -128,24 +128,24 @@ int	move_to_top_best_rotation(t_clist *node, t_clist **lst, char lst_name)
 
 /* Given a list, returns the correct position in which the node of another
 list should be, as an index */
-int	get_right_pos(int n, t_clist *lst)
-{
-	int		pos;
-	t_clist	*head;
+// int	get_right_pos(int n, t_clist *lst)
+// {
+// 	int		pos;
+// 	t_clist	*head;
 
-	pos = 1;
-	head = lst;
-	while (head->next != lst)
-	{
-		if (n > head->n && n < head->next->n)
-			return (pos);
-		pos++;
-		head = head->next;
-	}
-	if (n > head->n && n > head->next->n)
-		return (pos);
-	return (0);
-}
+// 	pos = 1;
+// 	head = lst;
+// 	while (head->next != lst)
+// 	{
+// 		if (n > head->n && n < head->next->n)
+// 			return (pos);
+// 		pos++;
+// 		head = head->next;
+// 	}
+// 	if (n > head->n && n > head->next->n)
+// 		return (pos);
+// 	return (0);
+// }
 
 /* Check if the list is sorted in one of two direction descending or ascending */
 int	is_sorted(t_clist *lst)
@@ -169,24 +169,24 @@ int	is_sorted(t_clist *lst)
 	return (0);
 }
 
-int	is_rev_sorted(t_clist *lst)
-{
-	int		i;
-	t_clist *head;
-	int		counter;
+// int	is_rev_sorted(t_clist *lst)
+// {
+// 	int		i;
+// 	t_clist *head;
+// 	int		counter;
 
-	head = lst;
-	counter = 0;
-	i = 0;
-	while (i < (clst_size(lst) - 1))
-	{
-		if (head->n > head->next->n)
-			counter++;
-		head = head->next;
-		i++;
-	}
-	if ((clst_size(lst) - 1) == counter)
-		return (1);
-	return (0);
-}
+// 	head = lst;
+// 	counter = 0;
+// 	i = 0;
+// 	while (i < (clst_size(lst) - 1))
+// 	{
+// 		if (head->n > head->next->n)
+// 			counter++;
+// 		head = head->next;
+// 		i++;
+// 	}
+// 	if ((clst_size(lst) - 1) == counter)
+// 		return (1);
+// 	return (0);
+// }
 
