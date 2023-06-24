@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:28:28 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 12:14:23 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 12:44:49 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_clist	*clst_newnode(int n)
 	return (new_node);
 }
 
-int	clst_size(t_clist *lst) // check an empty list
+int	clst_size(t_clist *lst)
 {
 	int		len;
 	t_clist	*head;
@@ -97,12 +97,12 @@ void	clst_print(t_clist *lst, char lst_name)
 		head = lst;
 		while (head && head->next != lst)
 		{
-			printf("%d   [%d]\n", head->n, head->i);
-			// print_bits(head->n);
+			// printf("%d   [%d]\n", head->n, head->i);
+			print_bits(head->i);
 			head = head->next;
 		}
-		printf("%d   [%d]\n", head->n, head->i);
-		// print_bits(head->n);
+		// printf("%d   [%d]\n", head->n, head->i);
+		print_bits(head->i);
 	}
 	else
 		printf("(empty list)\n");

@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 08:31:26 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 16:18:03 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 10:43:25 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,4 +150,3 @@ void	print_bits(int n)
 		ft_putstr_fd("  not_set", 1);
 	ft_putchar_fd('\n', 1);
 }
-

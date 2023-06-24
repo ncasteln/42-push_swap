@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:52:31 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/20 14:38:23 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 10:43:27 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	has_duplicates(int n, t_clist *lst)
 	return (0);
 }
 
-int	is_valid_zero(char *argv)
+static int	is_valid_zero(char *argv)
 {
 	if (ft_strlen(argv) == 1)
 	{
@@ -63,11 +63,12 @@ int	is_valid_argv(char *argv, t_clist *lst)
 {
 	long	n;
 
-	if (atol(argv) == 0 && !(is_valid_zero(argv)))
+	if (ft_atol(argv) == 0 && !(is_valid_zero(argv)))
 		return (0);
 	if (!is_valid_string_format(argv))
 		return (0);
-	n = atol(argv); // --------- change atol to be more smart ???? ----- check if + or - only
+	n = ft_atol(argv);
+	// printf("n = %ld\n", n);
 	if (n != (int)n)
 		return (0);
 	if (has_duplicates((int)n, lst))

@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:31:13 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 12:42:10 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 12:26:47 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	clst_swap(t_clist **lst, char lst_name)
 	}
 }
 
-void	clst_ss(t_clist **a, t_clist **b)
+void	clst_d_swap(t_clist **a, t_clist **b)
 {
 	clst_swap(a, ' ');
 	clst_swap(b, ' ');

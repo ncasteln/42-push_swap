@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/23 16:47:00 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/24 12:26:58 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	sort_two(t_clist **a);
 void	sort_three(t_clist **a);
 void	sort_five(t_clist **a, t_clist **b);
 void	sort_six_and_more(t_clist **a, t_clist **b);
+void	insertion_sort(t_clist **a, t_clist **b);
 
 // ------------------------ SORTING UTILS ------------------------
 int		is_sorted(t_clist *lst);
