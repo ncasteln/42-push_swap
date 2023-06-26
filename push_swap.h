@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 18:00:29 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:20:21 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_clist	*clst_last(t_clist *lst);
 void	clst_append(t_clist **lst, t_clist *node);
 void	clst_clear(t_clist **lst);
 
-// ------------------------ STACK MOVES ------------------------
+// ------------------------ STACK OP ------------------------
 void	clst_pop_push(t_clist **src, t_clist **dst, char lst_name);
 void	clst_swap(t_clist **lst, char lst_name);
 void	clst_d_swap(t_clist **a, t_clist **b);
@@ -41,8 +41,10 @@ void	clst_dr_rotate(t_clist **a, t_clist **b);
 long	ft_atol(char *str);
 int		is_valid_argv(char *argv, t_clist *lst);
 
-// ------------------------ INDEXING ------------------------
+// ------------------------ MAPPING ------------------------
 void	set_indexes(t_clist **a);
+int		is_already_set(t_clist *lst, int n);
+int		count_pos_neg(t_clist *lst, char sign);
 
 // ------------------------ SORTING ------------------------
 void	sort_two(t_clist **a);
@@ -53,12 +55,9 @@ void	insertion_sort(t_clist **a, t_clist **b);
 
 // ------------------------ SORTING UTILS ------------------------
 int		is_sorted(t_clist *lst);
-int		is_rev_sorted(t_clist *lst);
 t_clist	*get_biggest_node(t_clist **lst);
 t_clist	*get_smallest_node(t_clist **lst);
-int		get_dist_upward(int n, t_clist *lst);
-int		get_dist_downward(int n, t_clist *lst);
-int		move_to_top(t_clist *node, t_clist **lst, char lst_name);
+int		get_dist_ud(int n, t_clist *lst, char direction);
 int		move_to_top_best_rotation(t_clist *node, t_clist **lst, char lst_name);
 
 // ------------------------ BITWISE ------------------------

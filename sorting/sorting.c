@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 12:14:55 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 18:00:32 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/26 11:29:00 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	sort_two(t_clist **a)
 
 void	sort_three(t_clist **a)
 {
-	t_clist *head;
+	t_clist	*head;
 
 	head = *a;
 	if (get_biggest_node(a)->n == head->next->n)
@@ -82,24 +82,8 @@ void	sort_six_and_more(t_clist **a, t_clist **b)
 				clst_rotate(a, 'a');
 			j++;
 		}
-		// clst_print(*a, 'A');
-		// clst_print(*b, 'B');
 		while (*b)
 			clst_pop_push(b, a, 'a');
 		i++;
 	}
 }
-
-// void	insertion_sort(t_clist **a, t_clist **b)
-// {
-// 	t_clist *head_a;
-
-// 	head_a = *a;
-// 	while (*a)
-// 	{
-// 		move_to_top_best_rotation(get_smallest_node(a), a, 'a');
-// 		clst_pop_push(a, b, 'b');
-// 	}
-// 	while (*b)
-// 		clst_pop_push(b, a, 'a');
-// }

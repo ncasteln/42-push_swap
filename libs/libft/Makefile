@@ -6,7 +6,7 @@
 #    By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 15:52:36 by ncasteln          #+#    #+#              #
-#    Updated: 2023/06/24 15:40:08 by ncasteln         ###   ########.fr        #
+#    Updated: 2023/06/26 11:07:22 by ncasteln         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,24 +26,28 @@ OBJS = $(SRC:.c=.o)
 
 BONUS_OBJS = $(BONUS_SRC:.c=.o)
 
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME) bonus
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@echo "Compile $(NAME)"
+	@ar rcs $(NAME) $(OBJS)
 
 bonus: $(BONUS_OBJS)
-	ar rcs $(NAME) $(BONUS_OBJS)
+	@echo "Compile $@ $(NAME)"
+	@ar rcs $(NAME) $(BONUS_OBJS)
 
 %.o: %.c
-	cc -c $(FLAGS) $< -o $@
+	@cc -c $(CFLAGS) $< -o $@
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	@echo "$@ $(NAME)"
+	@rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "$@ $(NAME)"
+	@rm -f $(NAME)
 
 re: fclean all
 

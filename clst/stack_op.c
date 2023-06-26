@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clst_moves.c                                       :+:      :+:    :+:   */
+/*   stack_op.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:31:13 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/24 12:58:15 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:01:46 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,33 +27,26 @@ static void	clst_push(t_clist **lst, t_clist *new_node)
 		*lst = new_node;
 }
 
-static t_clist	*clst_pop(t_clist **lst)
+void	clst_pop_push(t_clist **src, t_clist **dst, char lst_name)
 {
 	t_clist	*popped;
 
-	popped = *lst;
-	if (*lst)
+	popped = *src;
+	if (*src)
 	{
-		if (clst_size(*lst) == 1)
-			*lst = NULL;
+		if (clst_size(*src) == 1)
+			*src = NULL;
 		else
 		{
-			clst_last(*lst)->next = (*lst)->next;
-			*lst = (*lst)->next;
+			clst_last(*src)->next = (*src)->next;
+			*src = (*src)->next;
 			popped->next = popped;
 		}
 	}
-	return (popped);
-}
-
-void	clst_pop_push(t_clist **src, t_clist **dst, char lst_name)
-{
-	if (clst_size(*src) > 0)
+	if (popped)
 	{
-		clst_push(dst, clst_pop(src));
-		ft_putchar_fd('p', 1);
-		ft_putchar_fd(lst_name, 1);
-		ft_putchar_fd('\n', 1);
+		clst_push(dst, popped);
+		ft_printf("p%c\n", lst_name);
 	}
 }
 
@@ -69,18 +62,9 @@ void	clst_swap(t_clist **lst, char lst_name)
 		temp->next = *lst;
 		clst_last(*lst)->next = temp;
 		*lst = clst_last(*lst);
-		ft_putchar_fd('s', 1);
 		if (lst_name == 'a' || lst_name == 'b')
-			ft_putchar_fd(lst_name, 1);
-		ft_putchar_fd('\n', 1);
+			ft_printf("s%c\n", lst_name);
 	}
-}
-
-void	clst_d_swap(t_clist **a, t_clist **b)
-{
-	clst_swap(a, ' ');
-	clst_swap(b, ' ');
-	ft_putstr_fd("s\n", 1);
 }
 
 void	clst_rotate(t_clist **lst, char lst_name)
@@ -88,18 +72,9 @@ void	clst_rotate(t_clist **lst, char lst_name)
 	if (clst_size(*lst) > 1)
 	{
 		*lst = (*lst)->next;
-		ft_putchar_fd('r', 1);
 		if (lst_name == 'a' || lst_name == 'b')
-			ft_putchar_fd(lst_name, 1);
-		ft_putchar_fd('\n', 1);
+			ft_printf("r%c\n", lst_name);
 	}
-}
-
-void	clst_d_rotate(t_clist **a, t_clist **b)
-{
-	clst_rotate(a, ' ');
-	clst_rotate(b, ' ');
-	ft_putstr_fd("r\n", 1);
 }
 
 void	clst_rev_rotate(t_clist **lst, char lst_name)
@@ -107,16 +82,7 @@ void	clst_rev_rotate(t_clist **lst, char lst_name)
 	if (clst_size(*lst) > 1)
 	{
 		*lst = clst_last(*lst);
-		ft_putstr_fd("rr", 1);
 		if (lst_name == 'a' || lst_name == 'b')
-			ft_putchar_fd(lst_name, 1);
-		ft_putchar_fd('\n', 1);
+			ft_printf("rr%c\n", lst_name);
 	}
-}
-
-void	clst_dr_rotate(t_clist **a, t_clist **b)
-{
-	clst_rev_rotate(a, ' ');
-	clst_rev_rotate(b, ' ');
-	ft_putstr_fd("r\n", 1);
 }
