@@ -6,7 +6,7 @@
 #    By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 15:23:28 by ncasteln          #+#    #+#              #
-#    Updated: 2023/06/26 12:16:30 by ncasteln         ###   ########.fr        #
+#    Updated: 2023/06/26 13:48:46 by ncasteln         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC = push_swap.c \
 	./clst/stack_dop.c \
 	./validation/validation.c \
 	./validation/ft_atol.c \
-	./validation/free_double.c \
+	./validation/free_double_ptr.c \
 	./sorting/sorting.c \
 	./sorting/sorting_utils.c \
 	./bit/bit_op.c \

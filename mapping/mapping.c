@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:54:58 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/26 12:19:45 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:55:01 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,7 @@ static void	store_index(int i, int n, t_clist **lst)
 	while (j < clst_size(*lst))
 	{
 		if (head->n == n)
-		{
-			if (head->n < 0)
-				head->i = (i * -1);
-			else
-				head->i = i;
-		}
+			head->i = i;
 		head = head->next;
 		j++;
 	}
@@ -91,12 +86,23 @@ static void	set_pos_indexes(t_clist *lst)
 	}
 }
 
-static void	translate_to_pos(t_clist **lst)
+void	set_indexes(t_clist **lst)
 {
 	int		i;
 	int		smallest;
 	t_clist	*head;
 
+	set_pos_indexes(*lst);
+	set_neg_indexes(*lst);
+	i = 0;
+	head = *lst;
+	while (i < clst_size(*lst))
+	{
+		if (head->n < 0)
+			head->i *= -1;
+		head = head->next;
+		i++;
+	}
 	i = 0;
 	head = *lst;
 	smallest = (get_smallest_node(lst)->i) * -1;
@@ -106,11 +112,4 @@ static void	translate_to_pos(t_clist **lst)
 		head = head->next;
 		i++;
 	}
-}
-
-void	set_indexes(t_clist **lst)
-{
-	set_pos_indexes(*lst);
-	set_neg_indexes(*lst);
-	translate_to_pos(lst);
 }

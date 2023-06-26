@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:27:57 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/26 12:20:21 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:59:47 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	clst_dr_rotate(t_clist **a, t_clist **b);
 
 // ------------------------ VALIDATION ------------------------
 long	ft_atol(char *str);
+void	free_double_pointer(char **s);
 int		is_valid_argv(char *argv, t_clist *lst);
 
 // ------------------------ MAPPING ------------------------
@@ -49,9 +50,8 @@ int		count_pos_neg(t_clist *lst, char sign);
 // ------------------------ SORTING ------------------------
 void	sort_two(t_clist **a);
 void	sort_three(t_clist **a);
-void	sort_five(t_clist **a, t_clist **b);
-void	sort_six_and_more(t_clist **a, t_clist **b);
-void	insertion_sort(t_clist **a, t_clist **b);
+void	sort_four_five(t_clist **a, t_clist **b);
+void	sort_six_more(t_clist **a, t_clist **b);
 
 // ------------------------ SORTING UTILS ------------------------
 int		is_sorted(t_clist *lst);
@@ -66,7 +66,6 @@ int		is_set(int n, int i);
 
 // ------------------------ UTILS ------------------------
 void	print_bits(int n);
-void	free_double_pointer(char **s);
 void	clst_print(t_clist *lst, char lst_name);
 
 #endif

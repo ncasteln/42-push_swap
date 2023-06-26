@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:21:34 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/06/26 12:06:38 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/26 13:51:33 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ int	main(int argc, char **argv)
 	else if (n_args == 3)
 		sort_three(&a);
 	else if (n_args == 4 || n_args == 5)
-		sort_five(&a, &b);
+		sort_four_five(&a, &b);
 	else
 	{
 		set_indexes(&a);
-		sort_six_and_more(&a, &b);
+		sort_six_more(&a, &b);
 	}
 	return (clst_clear(&a), clst_clear(&b), 0);
 }
