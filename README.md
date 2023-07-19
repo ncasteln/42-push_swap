@@ -19,8 +19,3 @@ I implemented circular linked lists to handle the list of integers. To fulfill t
 
 ### 3. Adapting a Sorting Algorithm
 In adapting the sorting algorithm for this project, I have chosen to implement the Radix Sort algorithm. To optimize the sorting process while staying within the constraints of the 2-stack requirement, I used bitwise operations and developed an indexing-based mapping approach.
-
-## Try it Out
-To get started with push_swap, follow these steps:
-
-1. Clone the repository:
