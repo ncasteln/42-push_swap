@@ -6,7 +6,7 @@
 /*   By: ncasteln <ncasteln@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:47:36 by ncasteln          #+#    #+#             */
-/*   Updated: 2023/04/05 18:00:05 by ncasteln         ###   ########.fr       */
+/*   Updated: 2023/06/26 17:48:54 by ncasteln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 static	void	free_memory(char **s)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
 	while (s[i])
 	{
 		free(s[i]);
