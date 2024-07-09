@@ -28,11 +28,11 @@ Like in any other project of 42, the memory allocated by `malloc()` has to be pr
 ## Try it out
 1. Clone the repository:
 ```
-git clone git@github.com:NicoCastelnuovo/push_swap.git push_swap
+git clone https://github.com/ncasteln/42-push_swap
 ```
 2. Navigate to the `push_swap` directory and `make` program:
 ```
-cd push_swap
+cd 42-push_swap
 make
 ```
 3. Execute it, passing a random amount of number:
